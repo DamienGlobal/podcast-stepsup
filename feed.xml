@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>STEPS'UP — Le podcast immobilier</title>
+    <link>https://damienglobal.github.io/podcast-stepsup/</link>
+    <language>fr-fr</language>
+    <copyright>STEPS'UP</copyright>
+    <description>Décrypter l'immobilier, sans le jargon. Le podcast STEPS'UP pour comprendre l'actualité et les dispositifs immobiliers.</description>
+    <itunes:author>STEPS'UP</itunes:author>
+    <itunes:summary>Décrypter l'immobilier, sans le jargon. Le podcast STEPS'UP pour comprendre l'actualité et les dispositifs immobiliers.</itunes:summary>
+    <itunes:type>episodic</itunes:type>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:image href="https://damienglobal.github.io/podcast-stepsup/cover.png"/>
+    <itunes:category text="Business"><itunes:category text="Investing"/></itunes:category>
+    <itunes:owner><itunes:name>STEPS'UP</itunes:name><itunes:email>damien.fancelli@global-icon.fr</itunes:email></itunes:owner>
+    <image><url>https://damienglobal.github.io/podcast-stepsup/cover.png</url><title>STEPS'UP — Le podcast immobilier</title><link>https://damienglobal.github.io/podcast-stepsup/</link></image>
+    <item>
+      <title>Le prêt à taux zéro (PTZ) en 2026 : qui peut en bénéficier et ce qui a changé</title>
+      <description>Tout ce qui a vraiment changé sur le PTZ en 2026 : primo-accession, conditions de ressources, retour du neuf sur tout le territoire depuis le 1er avril 2025, et les fausses nouveautés à ne pas croire.</description>
+      <itunes:summary>Tout ce qui a vraiment changé sur le PTZ en 2026 : primo-accession, conditions de ressources, retour du neuf sur tout le territoire depuis le 1er avril 2025, et les fausses nouveautés à ne pas croire.</itunes:summary>
+      <enclosure url="https://damienglobal.github.io/podcast-stepsup/episodes/ptz-2026.mp3" length="13101270" type="audio/mpeg"/>
+      <guid isPermaLink="false">stepsup-ptz-2026</guid>
+      <pubDate>Sun, 21 Jun 2026 12:04:58 +0200</pubDate>
+      <itunes:duration>00:09:06</itunes:duration>
+      <itunes:image href="https://damienglobal.github.io/podcast-stepsup/cover.png"/>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+  </channel>
+</rss>
