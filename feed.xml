@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>STEPS'UP — Le podcast immobilier</title>
+    <title>STEPS'UP : Le podcast immobilier</title>
     <link>https://damienglobal.github.io/podcast-stepsup/</link>
     <language>fr-fr</language>
     <copyright>© 2026 STEPS'UP</copyright>
     <description>STEPS'UP, c'est le podcast qui décode l'immobilier : sans jargon, sans baratin, et toujours à jour.
 
-À chaque épisode, on prend un sujet concret — achat, financement, fiscalité, dispositifs (prêt à taux zéro, MaPrimeRénov, DPE…), évolutions réglementaires — et on l'explique clairement, des bases jusqu'aux points techniques qui font la différence. Que vous achetiez votre premier logement ou que vous conseilliez des clients au quotidien, vous repartez avec des repères fiables et immédiatement utilisables.
+À chaque épisode, on prend un sujet concret (achat, financement, fiscalité, dispositifs comme le prêt à taux zéro, MaPrimeRénov ou le DPE, évolutions réglementaires) et on l'explique clairement, des bases jusqu'aux points techniques qui font la différence. Que vous achetiez votre premier logement ou que vous conseilliez des clients au quotidien, vous repartez avec des repères fiables et immédiatement utilisables.
 
-Notre obsession : l'exactitude. Chaque chiffre, chaque date et chaque texte de loi est vérifié sur les sources officielles avant publication — parce qu'en immobilier, une information périmée coûte cher.
+Notre obsession : l'exactitude. Chaque chiffre, chaque date et chaque texte de loi est vérifié sur les sources officielles avant publication, parce qu'en immobilier une information périmée coûte cher.
 
-STEPS'UP, la marque qui vous aide à apprendre, progresser et réussir dans l'immobilier.
+STEPS'UP, la marque qui vous aide à apprendre, progresser et réussir dans l'immobilier. Une marque du groupe Global Icon.
 
-🎙️ Animé par Damien Fancelli. Abonnez-vous pour suivre les prochains épisodes.</description>
+🎙️ Animé par Damien Fancelli. Plus d'infos sur www.global-icon.fr. Abonnez-vous pour suivre les prochains épisodes.</description>
     <itunes:author>STEPS'UP</itunes:author>
     <itunes:summary>STEPS'UP, c'est le podcast qui décode l'immobilier : sans jargon, sans baratin, et toujours à jour.
 
-À chaque épisode, on prend un sujet concret — achat, financement, fiscalité, dispositifs (prêt à taux zéro, MaPrimeRénov, DPE…), évolutions réglementaires — et on l'explique clairement, des bases jusqu'aux points techniques qui font la différence. Que vous achetiez votre premier logement ou que vous conseilliez des clients au quotidien, vous repartez avec des repères fiables et immédiatement utilisables.
+À chaque épisode, on prend un sujet concret (achat, financement, fiscalité, dispositifs comme le prêt à taux zéro, MaPrimeRénov ou le DPE, évolutions réglementaires) et on l'explique clairement, des bases jusqu'aux points techniques qui font la différence. Que vous achetiez votre premier logement ou que vous conseilliez des clients au quotidien, vous repartez avec des repères fiables et immédiatement utilisables.
 
-Notre obsession : l'exactitude. Chaque chiffre, chaque date et chaque texte de loi est vérifié sur les sources officielles avant publication — parce qu'en immobilier, une information périmée coûte cher.
+Notre obsession : l'exactitude. Chaque chiffre, chaque date et chaque texte de loi est vérifié sur les sources officielles avant publication, parce qu'en immobilier une information périmée coûte cher.
 
-STEPS'UP, la marque qui vous aide à apprendre, progresser et réussir dans l'immobilier.
+STEPS'UP, la marque qui vous aide à apprendre, progresser et réussir dans l'immobilier. Une marque du groupe Global Icon.
 
-🎙️ Animé par Damien Fancelli. Abonnez-vous pour suivre les prochains épisodes.</itunes:summary>
+🎙️ Animé par Damien Fancelli. Plus d'infos sur www.global-icon.fr. Abonnez-vous pour suivre les prochains épisodes.</itunes:summary>
     <itunes:type>episodic</itunes:type>
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://damienglobal.github.io/podcast-stepsup/cover.png"/>
     <itunes:category text="Business"><itunes:category text="Investing"/></itunes:category>
     <itunes:owner><itunes:name>STEPS'UP</itunes:name><itunes:email>damien.fancelli@global-icon.fr</itunes:email></itunes:owner>
-    <image><url>https://damienglobal.github.io/podcast-stepsup/cover.png</url><title>STEPS'UP — Le podcast immobilier</title><link>https://damienglobal.github.io/podcast-stepsup/</link></image>
+    <image><url>https://damienglobal.github.io/podcast-stepsup/cover.png</url><title>STEPS'UP : Le podcast immobilier</title><link>https://damienglobal.github.io/podcast-stepsup/</link></image>
     <item>
       <title>Le prêt à taux zéro (PTZ) en 2026 : qui peut en bénéficier et ce qui a changé</title>
       <description>Tout ce qui a vraiment changé sur le PTZ en 2026 : primo-accession, conditions de ressources, retour du neuf sur tout le territoire depuis le 1er avril 2025, et les fausses nouveautés à ne pas croire.</description>
