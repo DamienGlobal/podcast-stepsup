@@ -31,6 +31,19 @@ STEPS'UP, la marque qui vous aide à apprendre, progresser et réussir dans l'im
     <itunes:owner><itunes:name>STEPS'UP</itunes:name><itunes:email>damien.fancelli@global-icon.fr</itunes:email></itunes:owner>
     <image><url>https://damienglobal.github.io/podcast-stepsup/cover.png</url><title>STEPS'UP : Le podcast immobilier</title><link>https://damienglobal.github.io/podcast-stepsup/</link></image>
     <item>
+      <title>Taxe foncière : qui paie quoi quand on achète ou qu'on vend en cours d'année</title>
+      <description>La taxe foncière est due pour l'année entière par la personne imposable au premier janvier (articles 1400 et 1415 du Code général des impôts), souvent le propriétaire, parfois l'usufruitier, et l'administration ne fait aucun prorata en cas de vente en cours d'année ; le partage entre vendeur et acheteur est une convention privée fondée sur la force obligatoire du contrat (article 1103 du Code civil), non opposable au fisc, et sans clause écrite l'acheteur ne doit rien rembourser. Concernant la taxe d'enlèvement des ordures ménagères, seul le montant principal est récupérable sur le locataire d'habitation (décret numéro 87-713 du 26 août 1987) tandis que les frais de gestion, ou frais de rôle représentant 8 % de la taxe, ne sont jamais récupérables (jurisprudence constante de la Cour de cassation, troisième chambre civile, 13 novembre 2014, numéro 13-22.016 ; impots.gouv.fr, mise à jour d</description>
+      <itunes:summary>La taxe foncière est due pour l'année entière par la personne imposable au premier janvier (articles 1400 et 1415 du Code général des impôts), souvent le propriétaire, parfois l'usufruitier, et l'administration ne fait aucun prorata en cas de vente en cours d'année ; le partage entre vendeur et acheteur est une convention privée fondée sur la force obligatoire du contrat (article 1103 du Code civil), non opposable au fisc, et sans clause écrite l'acheteur ne doit rien rembourser. Concernant la taxe d'enlèvement des ordures ménagères, seul le montant principal est récupérable sur le locataire d'habitation (décret numéro 87-713 du 26 août 1987) tandis que les frais de gestion, ou frais de rôle représentant 8 % de la taxe, ne sont jamais récupérables (jurisprudence constante de la Cour de cassation, troisième chambre civile, 13 novembre 2014, numéro 13-22.016 ; impots.gouv.fr, mise à jour d</itunes:summary>
+      <enclosure url="https://damienglobal.github.io/podcast-stepsup/episodes/taxe-fonciere-qui-paie-quoi-quand-on-achete-o-20260920-2206.mp3" length="12651990" type="audio/mpeg"/>
+      <guid isPermaLink="false">stepsup-taxe-fonciere-qui-paie-quoi-quand-on-achete-o-20260920-2206</guid>
+      <pubDate>Sun, 20 Sep 2026 23:00:17 +0200</pubDate>
+      <itunes:duration>00:08:47</itunes:duration>
+      <itunes:episode>32</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://damienglobal.github.io/podcast-stepsup/images/taxe-fonciere-qui-paie-quoi-quand-on-achete-o-20260920-2206.png"/>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
       <title>Google Maps : l'arme secrète pour juger un quartier sans y mettre les pieds</title>
       <description>Vous repérez une annonce à 400 km de chez vous et vous vous demandez si le quartier vaut le déplacement. Avant de prendre le train, une heure derrière votre écran peut déjà éliminer la moitié des biens. Dans cet épisode :
 • Street View, itinéraires et vue satellite pour lire l'ambiance d'une rue, avec l'historique des images disponible sur mobile depuis mai 2022
