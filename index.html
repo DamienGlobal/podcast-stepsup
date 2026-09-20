@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STEPS'UP : Le podcast immobilier</title>
+<meta name="description" content="Le podcast qui décode l'immobilier en moins de dix minutes : achat, financement, fiscalité, location. Sans jargon, toujours à jour. Une marque du groupe Global Icon.">
+<link rel="canonical" href="https://damienglobal.github.io/podcast-stepsup/">
+<link rel="alternate" type="application/rss+xml" title="STEPS'UP : Le podcast immobilier" href="https://damienglobal.github.io/podcast-stepsup/feed.xml">
+<link rel="icon" type="image/png" href="cover.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="STEPS'UP : Le podcast immobilier">
+<meta property="og:description" content="Le podcast qui décode l'immobilier en moins de dix minutes. Sans jargon, toujours à jour.">
+<meta property="og:image" content="https://damienglobal.github.io/podcast-stepsup/cover.png">
+<meta property="og:url" content="https://damienglobal.github.io/podcast-stepsup/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PodcastSeries",
+  "name": "STEPS'UP : Le podcast immobilier",
+  "url": "https://damienglobal.github.io/podcast-stepsup/",
+  "image": "https://damienglobal.github.io/podcast-stepsup/cover.png",
+  "inLanguage": "fr-FR",
+  "webFeed": "https://damienglobal.github.io/podcast-stepsup/feed.xml",
+  "author": { "@type": "Organization", "name": "STEPS'UP", "url": "https://www.global-icon.fr" },
+  "publisher": { "@type": "Organization", "name": "Global Icon", "url": "https://www.global-icon.fr" }
+}
+</script>
+<style>
+  :root {
+    --noir: #1E1E2C; --bleu: #2696D4; --vert: #51A144; --ambre: #C98A1B;
+    --fond: #F3F9FD; --fond2: #EBF5FB; --blanc: #FFFFFF; --gris: #5B6B7A; --ligne: #D9E6F0;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--fond); color: var(--noir); font-family: 'Switzer', 'Inter', 'Aptos', system-ui, -apple-system, 'Segoe UI', sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: var(--bleu); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+  header.hero { background: var(--noir); color: var(--blanc); padding: 48px 0 40px; }
+  .hero .wrap { display: grid; grid-template-columns: 220px 1fr; gap: 36px; align-items: center; }
+  .hero img { width: 220px; height: 220px; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,.45); display: block; }
+  .hero .sur { color: var(--bleu); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; margin: 0 0 8px; }
+  .hero h1 { font-size: 34px; line-height: 1.15; margin: 0 0 14px; font-weight: 700; }
+  .hero p.pitch { font-size: 17px; color: #C9D8E8; margin: 0 0 22px; max-width: 58ch; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 15px; transition: transform .12s, opacity .12s; }
+  .btn:hover { transform: translateY(-1px); opacity: .95; }
+  .btn.spotify { background: #1DB954; color: #06210f; }
+  .btn.apple { background: #FFFFFF; color: var(--noir); }
+  .btn.deezer { background: #A238FF; color: #fff; }
+  .btn.amazon { background: #25D1DA; color: #072a2c; }
+  .btn.youtube { background: #FF0033; color: #fff; }
+  .btn.rss { background: transparent; color: #C9D8E8; border: 1px solid #3a4a62; }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+
+  section.about { padding: 34px 0 8px; }
+  .about p { margin: 0 0 12px; color: #2b3542; max-width: 72ch; }
+  .stats { display: flex; gap: 26px; flex-wrap: wrap; margin: 18px 0 0; color: var(--gris); font-size: 14px; }
+  .stats b { color: var(--noir); font-size: 22px; display: block; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+
+  section.list { padding: 26px 0 60px; }
+  .list h2 { font-size: 22px; margin: 0 0 6px; }
+  .list .sub { color: var(--gris); margin: 0 0 18px; font-size: 14px; }
+  .ep { background: var(--blanc); border: 1px solid var(--ligne); border-radius: 14px; padding: 16px; margin-bottom: 12px; display: grid; grid-template-columns: 92px 1fr; gap: 16px; }
+  .ep img { width: 92px; height: 92px; border-radius: 10px; object-fit: cover; background: var(--fond2); display: block; }
+  .ep .meta { color: var(--gris); font-size: 13px; margin: 0 0 4px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .ep .num { color: var(--bleu); font-weight: 600; }
+  .ep h3 { margin: 0 0 8px; font-size: 17px; line-height: 1.3; font-weight: 600; }
+  .ep p.acc { margin: 0 0 10px; color: #2b3542; font-size: 15px; }
+  .ep details { font-size: 14px; color: #2b3542; margin: 0 0 10px; }
+  .ep details summary { cursor: pointer; color: var(--bleu); font-weight: 500; list-style: none; }
+  .ep details summary::-webkit-details-marker { display: none; }
+  .ep details[open] summary { margin-bottom: 6px; }
+  .ep .pts { margin: 0; padding-left: 18px; }
+  .ep audio { width: 100%; height: 38px; }
+  .empty { color: var(--gris); padding: 30px 0; text-align: center; }
+
+  footer { background: var(--noir); color: #C9D8E8; padding: 34px 0; font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 30px; align-items: center; justify-content: space-between; }
+  footer a { color: #fff; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer .marque { color: #fff; font-weight: 600; }
+
+  @media (max-width: 680px) {
+    header.hero { padding: 32px 0 28px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 20px; text-align: left; }
+    .hero img { width: 160px; height: 160px; }
+    .hero h1 { font-size: 27px; }
+    .ep { grid-template-columns: 70px 1fr; gap: 12px; padding: 14px; }
+    .ep img { width: 70px; height: 70px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img src="cover.png" alt="Pochette du podcast STEPS'UP" width="220" height="220">
+    <div>
+      <p class="sur">Podcast immobilier</p>
+      <h1>STEPS'UP : Le podcast immobilier</h1>
+      <p class="pitch">L'immobilier décodé en moins de dix minutes par épisode. Achat, financement, fiscalité, location : un sujet concret à chaque fois, sans jargon et toujours à jour.</p>
+      <div class="btns" id="btns"></div>
+    </div>
+  </div>
+</header>
+
+<section class="about">
+  <div class="wrap">
+    <p>Vous voulez acheter, investir, ou simplement comprendre ce qu'on vous raconte chez le banquier ou le notaire ? Chaque épisode prend une question que tout le monde se pose et y répond clairement, avec les vrais chiffres et les vraies règles. Dix minutes, pas plus : le temps d'un trajet.</p>
+    <p>STEPS'UP est une marque du groupe <a href="https://www.global-icon.fr">Global Icon</a>, acteur de l'immobilier en France, au Maroc et à Dubaï.</p>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<section class="list">
+  <div class="wrap">
+    <h2>Tous les épisodes</h2>
+    <p class="sub">Du plus récent au plus ancien. Écoutez directement ici ou sur votre application préférée.</p>
+    <div id="episodes"><p class="empty">Chargement des épisodes…</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><span class="marque">STEPS'UP</span> · Une marque du groupe <a href="https://www.global-icon.fr">Global Icon</a></div>
+    <div>
+      <a href="https://www.global-icon.fr">global-icon.fr</a> &nbsp;·&nbsp;
+      <a href="mailto:damien.fancelli@global-icon.fr">Contact</a> &nbsp;·&nbsp;
+      <a href="feed.xml">Flux RSS</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Plateformes : mettre l'URL quand le podcast y est référencé, laisser null sinon (le bouton reste masqué).
+  var PLATFORMS = [
+    { id: 'spotify', label: 'Écouter sur Spotify', url: 'https://open.spotify.com/show/033Cb7h2CfLZYSzBIoSACz',
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.6.6 0 0 1-.8.2c-2.3-1.4-5.2-1.7-8.6-.9a.6.6 0 1 1-.3-1.2c3.7-.8 6.9-.5 9.5 1.1.3.2.4.5.2.8zm1.2-2.7a.8.8 0 0 1-1 .3c-2.6-1.6-6.6-2.1-9.7-1.1a.8.8 0 1 1-.5-1.5c3.5-1.1 7.9-.5 10.9 1.3.4.2.5.7.3 1zm.1-2.8C14.8 9 9.6 8.8 6.6 9.7a.9.9 0 1 1-.5-1.8c3.5-1 9.2-.8 12.8 1.3a.9.9 0 0 1-1 1.7z"/></svg>' },
+    { id: 'apple', label: 'Apple Podcasts', url: null,
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.4 19.4c.2-.7.4-1.6.5-2.2A7.6 7.6 0 1 1 15 19.2c.1.6.3 1.5.5 2.2A10 10 0 0 0 12 2zm0 5.2a4.8 4.8 0 0 0-2.2 9.1c-.1-.7-.2-1.5-.2-2A2.7 2.7 0 1 1 14.4 14c0 .6-.1 1.3-.2 2A4.8 4.8 0 0 0 12 7.2zm0 5.3c-.7 0-1.3.6-1.3 1.3 0 .3.4 3.2.8 5.4.1.4.3.6.5.6s.4-.2.5-.6c.4-2.2.8-5.1.8-5.4 0-.7-.6-1.3-1.3-1.3z"/></svg>' },
+    { id: 'deezer', label: 'Deezer', url: null,
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 15h4v3H2zm5 0h4v3H7zm5 0h4v3h-4zm5 0h4v3h-4zM7 10h4v3H7zm5 0h4v3h-4zm5 0h4v3h-4zm-5-5h4v3h-4zm5 0h4v3h-4z"/></svg>' },
+    { id: 'amazon', label: 'Amazon Music', url: null,
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 14.5c4.5 3.3 11.5 3.3 16 0l1 1.2c-5 3.8-13 3.8-18 0zM9 4h2v9.5a2.5 2.5 0 1 1-2-2.4z"/></svg>' },
+    { id: 'youtube', label: 'YouTube', url: null,
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.4-1.6.5-3.2.5-4.8s-.1-3.2-.5-4.8zM9.8 15.1V8.9L15.7 12z"/></svg>' },
+    { id: 'rss', label: 'Flux RSS', url: 'feed.xml',
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4a16 16 0 0 1 16 16h-3A13 13 0 0 0 4 7zm0 6a10 10 0 0 1 10 10h-3a7 7 0 0 0-7-7zm2 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>' }
+  ];
+  var btns = document.getElementById('btns');
+  PLATFORMS.forEach(function (p) {
+    if (!p.url) return;
+    var a = document.createElement('a');
+    a.className = 'btn ' + p.id; a.href = p.url; a.innerHTML = p.svg + '<span>' + p.label + '</span>';
+    if (p.id !== 'rss') { a.target = '_blank'; a.rel = 'noopener'; }
+    btns.appendChild(a);
+  });
+
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function dateFr(s) {
+    var d = new Date(s); if (isNaN(d)) return '';
+    return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+  function duree(hms, sec) {
+    var m = sec ? Math.round(sec / 60) : 0;
+    if (!m && hms) { var p = hms.split(':'); m = (+p[0]) * 60 + (+p[1]); }
+    return m ? m + ' min' : '';
+  }
+  // Sépare l'accroche (avant "Dans cet épisode :"), les points, et retire le pied de page.
+  function decoupe(desc) {
+    var t = String(desc || '').replace(/\r/g, '');
+    t = t.replace(/\n*STEPS'UP, le podcast qui décode[\s\S]*$/, '').trim();
+    var i = t.indexOf('Dans cet épisode');
+    var acc = i >= 0 ? t.slice(0, i).trim() : t;
+    var pts = [];
+    if (i >= 0) {
+      t.slice(i).split('\n').forEach(function (l) {
+        l = l.replace(/^[•\-•]\s*/, '').trim();
+        if (l && !/^Dans cet épisode/.test(l)) pts.push(l);
+      });
+    }
+    if (!pts.length && acc.length > 260) { pts = []; }
+    return { acc: acc, pts: pts };
+  }
+
+  fetch('episodes.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (eps) {
+    if (!Array.isArray(eps) || !eps.length) throw new Error('vide');
+    var total = eps.length, secs = eps.reduce(function (a, e) { return a + (e.durationSec || 0); }, 0);
+    document.getElementById('stats').innerHTML =
+      '<div><b>' + total + '</b>épisodes</div>' +
+      '<div><b>' + Math.round(secs / 60 / total) + ' min</b>en moyenne</div>' +
+      '<div><b>' + Math.round(secs / 3600) + ' h</b>de contenu</div>';
+    var out = eps.map(function (e, i) {
+      var num = total - i, d = decoupe(e.description);
+      var pts = d.pts.length ? '<details><summary>Ce que vous allez apprendre</summary><ul class="pts">' + d.pts.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul></details>' : '';
+      var accHtml = d.acc ? '<p class="acc">' + esc(d.acc.length > 320 ? d.acc.slice(0, 317) + '…' : d.acc) + '</p>' : '';
+      return '<article class="ep" id="' + esc(e.slug) + '">' +
+        '<img src="' + esc(e.imageUrl || 'cover.png') + '" alt="" loading="lazy" width="92" height="92">' +
+        '<div>' +
+          '<p class="meta"><span class="num">Épisode ' + num + '</span><span>' + dateFr(e.pubDate) + '</span><span>' + duree(e.durationHMS, e.durationSec) + '</span></p>' +
+          '<h3>' + esc(e.title) + '</h3>' + accHtml + pts +
+          '<audio controls preload="none" src="' + esc(e.mp3Url) + '"></audio>' +
+        '</div></article>';
+    });
+    document.getElementById('episodes').innerHTML = out.join('');
+    if (location.hash) { var el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }
+  }).catch(function () {
+    document.getElementById('episodes').innerHTML = '<p class="empty">Les épisodes sont disponibles sur <a href="https://open.spotify.com/show/033Cb7h2CfLZYSzBIoSACz">Spotify</a>.</p>';
+  });
+})();
+</script>
+</body>
+</html>
