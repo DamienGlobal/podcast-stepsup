@@ -176,7 +176,7 @@
   // Sépare l'accroche (avant "Dans cet épisode :"), les points, et retire le pied de page.
   function decoupe(desc) {
     var t = String(desc || '').replace(/\r/g, '');
-    t = t.replace(/\n*STEPS'UP, le podcast qui décode[\s\S]*$/, '').trim();
+    t = t.replace(/\n*(Abonnez-vous pour ne manquer[\s\S]*$|STEPS'UP, le podcast qui décode[\s\S]*$)/, '').trim();
     var i = t.indexOf('Dans cet épisode');
     var acc = i >= 0 ? t.slice(0, i).trim() : t;
     var pts = [];
