@@ -34,7 +34,8 @@
       "garantie emprunteur", "garantie bancaire", "garantie hypothécaire", "garantie du prêt", "garanties du prêt", "dépôt de garantie",
       "garantie de remboursement", "garantie autonome", "garantie des vices cachés", "garantie de livraison"
     ],
-    "R3_a_relire_titre_description": ["gagnez", "gagnerait", "gagnant", "gagnante", "gagnants", "gagnantes", "rapporte", "rapportent", "enrichir", "enrichit", "rentable à coup sûr"],
+    "R3_a_relire_titre_description": ["gagnez", "gagnerait", "gagnant", "gagnante", "gagnants", "gagnantes", "rapporte", "rapportent", "enrichir", "enrichit", "rentable à coup sûr",
+      "sans payer", "payer moins", "sans impôt", "sans impôts", "moins d'impôt", "moins d'impôts", "cash-flow par mois", "cashflow par mois"],
     "R3_formules_gain_script": [
       "vous allez gagner", "vous gagnerez", "vous pouvez gagner", "vous allez économiser", "vous économiserez", "vous pouvez économiser",
       "faire gagner", "fera gagner", "font gagner", "économiser des milliers", "gagner des milliers",
