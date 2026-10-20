@@ -81,6 +81,16 @@ Aucune construite à ce jour : évaluation faite, voie 2 recommandée (lien sign
 - Section 9, point ouvert O32, colonne de l'objet : ajouter « Podcast : chaîne conforme depuis le 20 octobre 2026 (règles R1 à R12 dans le dépôt du podcast, contrôle codé, journal des validations) ; mise en conformité des 41 épisodes publiés préparée, en attente du go de Damien. »
 - Section 3, journal des décisions, nouvelle ligne (à numéroter par Damien) : « 20 octobre 2026, C2. Podcast : aucun épisode n'est approuvable si le contrôle codé des règles le bloque ; R1 et R2 sont posées par le code ; chaque décision de validation est journalisée dans le dépôt du podcast. »
 
+## Mise à jour en séance (20 octobre 2026, après la première version de ce compte rendu)
+
+- Décision de Damien : nouveaux textes de R1 et R2 (commit 0e6145e ; anciens textes du 12/10 conservés dans `historique` du fichier de règles) :
+  - R1 : « Steps'up, le podcast. Ma voix est générée par IA à partir de ma vraie voix. Mes textes sont écrits par moi, avec l'appui de l'IA, notamment pour récupérer les informations les plus récentes. »
+  - R2 : « Voix générée par IA à partir de celle de Damien Fancelli, avec son accord ; textes écrits par lui, avec l'appui de l'IA, notamment pour récupérer les informations les plus récentes. »
+- Cas de test après changement : 10 sur 10 réussis ; les nouveaux textes seuls ressortent CONFORME.
+- Les deux épisodes en attente (exécutions 1919 et 1924, ancien texte figé au lancement) ont été arrêtés, leur refus journalisé, et relancés avec le nouveau texte ; nouveaux e-mails de validation à suivre.
+- Annonce R1 régénérée dans la voix habituelle (12,2 s) et nouvel essai sur le n° 41 (+12,8 s au lieu de +7,4 s) : décalages de chapitres et tailles des fichiers à recalculer au moment de l'étape 3.
+- À reporter dans le référentiel (principe 10 et D49, textes exacts des mentions du podcast) : remplacer les deux textes du podcast par ceux ci-dessus, avec la mention « modifiés par Damien le 20 octobre 2026 ».
+
 ## Prochaine étape
 
 Damien valide l'épisode refait et « Investir seul ou à deux », écoute l'annonce R1, puis donne son « go publiés » (avec ses décisions audio) et son « go voie » ; Claude Code applique alors l'étape 3 en commençant par le n° 41, vérifie chaque épisode en ligne, et construit la voie de validation retenue.
