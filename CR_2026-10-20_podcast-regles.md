@@ -68,9 +68,10 @@ Voie 2 retenue (« go voie 2 » de Damien) et en production depuis le 20/10/2026
 | Écouter l'annonce R1 générée (prononciation de « Steps'up ») | Damien | avant le « go publiés » |
 | Arbitrer les titres « limites » gardés (n° 12, 19, 28, 31, 37) et le n° 40 (« gagner » au sens de salaire) | Damien | avec le « go publiés » |
 | Valider deux extensions du contrôle faites en séance : institutions permises au titre de R5 (Haut Conseil de stabilité financière, conseiller bancaire…) ; formules R3 « à relire » | Damien | prochaine revue |
-| Description de l'émission (niveau du flux) : « vérifié sur les sources officielles », « Animé par Damien Fancelli » (R4), « que vous conseilliez des clients » (R5), emoji (R11) | Claude Code, après « go publiés » | avec l'étape 3 |
+| ~~Description de l'émission (niveau du flux)~~ : tranché par Damien le 20/10, inchangée (voir mise à jour (4)) | Damien | fait |
 | Commentaire « made with suno » dans les métadonnées des mp3 (R4) | Claude Code, sur décision de Damien | avec l'étape 3 audio |
-| Essai réel de la voie 2 depuis le téléphone : e-mail d'essai du 20/10 (épisode fictif « ESSAI : validation depuis le téléphone », rien n'est produit), approuver ou refuser, puis le dire | Damien | avant le 23/10/2026 à 16 h (échéance des liens) |
+| ~~Essai réel de la voie 2 depuis le téléphone~~ : fait le 20/10, concluant (voir mise à jour (4)) | Damien | fait |
+| Le jour où un épisode est enregistré par Damien sans IA : ne pas lui poser R1 ni R2 (aujourd'hui posées par le code sur chaque épisode de la chaîne) ; prévoir une option, ou le publier hors de la chaîne automatique | Claude Code, sur demande de Damien | avant le premier épisode enregistré sans IA |
 | Ancienne exécution en attente depuis le 22/08 (épisode déjà en ligne) : à annuler | Claude Code, sur accord de Damien | prochaine séance |
 | Hébergement de l'audio : le site publié atteindrait son plafond de 1 Go vers janvier 2027 | Damien et Claude Code | avant décembre 2026 |
 | Hors périmètre, après l'immatriculation : flux sous une adresse stepsup.fr et transfert du dépôt dans l'organisation stepsup-fr (domaine personnalisé sur GitHub Pages, ancien flux qui annonce la nouvelle adresse, déclaration de la nouvelle adresse aux plateformes, mise à jour des workflows qui écrivent dans le dépôt) | Damien | après l'immatriculation |
@@ -113,6 +114,11 @@ Voie 2 retenue (« go voie 2 » de Damien) et en production depuis le 20/10/2026
 - Limites connues : les liens signés figurent dans les exécutions enregistrées de n8n (accès local seulement) ; au-delà de 14 jours PC éteint, l'épisode est classé « sans réponse » et une alerte le signale.
 - Hors périmètre (après l'immatriculation) : aucun changement pour la voie 2 ; l'adresse du Worker pourra passer sous stepsup.fr (route Cloudflare) sans toucher à n8n autrement que par l'adresse du service.
 
+## Mise à jour en séance (4) : essai depuis le téléphone, description de l'émission
+
+- Essai réel de la voie 2 par Damien, depuis son téléphone, sur l'épisode fictif : approbation à 16 h 23, prise en compte par n8n à 16 h 25 (décision lue « approuver », suite « approuvé »). Banc d'essai et données d'essai supprimés ensuite.
+- Décision de Damien : la description de l'émission (niveau du flux) reste inchangée. Motif : chaque épisode qui utilise l'IA le dit lui-même (R1 dans l'audio, R2 en tête de sa description) ; une mention d'IA au niveau de l'émission deviendrait fausse le jour où Damien publiera des épisodes enregistrés de sa propre voix, sans IA. Conséquence : les mentions d'IA restent au niveau de chaque épisode, jamais au niveau de l'émission.
+
 ## Prochaine étape
 
-Damien fait l'essai depuis son téléphone sur l'e-mail d'essai (épisode fictif) ; le prochain vrai épisode (sujet du 22/10) arrivera par la voie 2. Claude Code supprime ensuite le banc d'essai, et annule l'ancienne exécution 900 avec l'accord de Damien.
+Le prochain vrai épisode (sujet du 22/10) arrive par la voie 2 ; Damien le valide depuis son téléphone. Restent ouverts : l'annulation de l'ancienne exécution 900 (accord de Damien attendu), la mention « made with suno » dans les fichiers audio (décision de Damien), et l'option « épisode enregistré sans IA » le moment venu.
