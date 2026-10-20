@@ -69,10 +69,10 @@ Voie 2 retenue (« go voie 2 » de Damien) et en production depuis le 20/10/2026
 | Arbitrer les titres « limites » gardés (n° 12, 19, 28, 31, 37) et le n° 40 (« gagner » au sens de salaire) | Damien | avec le « go publiés » |
 | Valider deux extensions du contrôle faites en séance : institutions permises au titre de R5 (Haut Conseil de stabilité financière, conseiller bancaire…) ; formules R3 « à relire » | Damien | prochaine revue |
 | ~~Description de l'émission (niveau du flux)~~ : tranché par Damien le 20/10, inchangée (voir mise à jour (4)) | Damien | fait |
-| Commentaire « made with suno » dans les métadonnées des mp3 (R4) | Claude Code, sur décision de Damien | avec l'étape 3 audio |
+| ~~Commentaire « made with suno » dans les métadonnées des mp3 (R4)~~ : retiré le 20/10 sur décision de Damien (voir mise à jour (5)) | Claude Code | fait |
 | ~~Essai réel de la voie 2 depuis le téléphone~~ : fait le 20/10, concluant (voir mise à jour (4)) | Damien | fait |
 | Le jour où un épisode est enregistré par Damien sans IA : ne pas lui poser R1 ni R2 (aujourd'hui posées par le code sur chaque épisode de la chaîne) ; prévoir une option, ou le publier hors de la chaîne automatique | Claude Code, sur demande de Damien | avant le premier épisode enregistré sans IA |
-| Ancienne exécution en attente depuis le 22/08 (épisode déjà en ligne) : à annuler | Claude Code, sur accord de Damien | prochaine séance |
+| ~~Ancienne exécution en attente depuis le 22/08~~ : annulée le 20/10 avec l'accord de Damien | Claude Code | fait |
 | Hébergement de l'audio : le site publié atteindrait son plafond de 1 Go vers janvier 2027 | Damien et Claude Code | avant décembre 2026 |
 | Hors périmètre, après l'immatriculation : flux sous une adresse stepsup.fr et transfert du dépôt dans l'organisation stepsup-fr (domaine personnalisé sur GitHub Pages, ancien flux qui annonce la nouvelle adresse, déclaration de la nouvelle adresse aux plateformes, mise à jour des workflows qui écrivent dans le dépôt) | Damien | après l'immatriculation |
 
@@ -119,6 +119,16 @@ Voie 2 retenue (« go voie 2 » de Damien) et en production depuis le 20/10/2026
 - Essai réel de la voie 2 par Damien, depuis son téléphone, sur l'épisode fictif : approbation à 16 h 23, prise en compte par n8n à 16 h 25 (décision lue « approuver », suite « approuvé »). Banc d'essai et données d'essai supprimés ensuite.
 - Décision de Damien : la description de l'émission (niveau du flux) reste inchangée. Motif : chaque épisode qui utilise l'IA le dit lui-même (R1 dans l'audio, R2 en tête de sa description) ; une mention d'IA au niveau de l'émission deviendrait fausse le jour où Damien publiera des épisodes enregistrés de sa propre voix, sans IA. Conséquence : les mentions d'IA restent au niveau de chaque épisode, jamais au niveau de l'émission.
 
+## Mise à jour en séance (5) : « made with suno » retiré, exécution 900 annulée
+
+- Origine : les dix musiques de l'habillage (générées avec Suno) portent le commentaire « made with suno » ; le montage final le recopiait depuis l'intro dans chaque épisode, contraire à R4 (aucun texte, hors R1 et R2, ne dit ce qui est fait par l'IA).
+- Accord de Damien le 20/10 :
+  - montage (`assemble_voix.sh`, version 6, sauvegarde `assemble_voix.sh.v5.bak`) : plus aucune étiquette des musiques ne passe dans l'épisode ; essai sur un épisode miniature : seule reste l'étiquette technique de l'encodeur ;
+  - « Investir seul ou à deux » (en file, sortie le 21/10 à 7 h) : étiquette retirée avant publication ;
+  - épisodes publiés après le 12/10 (n° 40, 41, 42), conformément à la non-rétroactivité : étiquette retirée, même adresse, même identifiant, même date ; dans les quatre cas le son est recopié tel quel (empreinte du son décodé identique, durée identique, 105 octets de moins) ; vérifié en ligne (taille servie et taille dans le flux concordantes, contrôle codé CONFORME, plus de « suno » dans le fichier servi) ;
+  - les 39 épisodes antérieurs au 12/10 restent tels quels.
+- Exécution 900 (22/08, épisode déjà en ligne, ancien bouton « Approve » encore actif) : annulée ; plus aucune exécution en attente.
+
 ## Prochaine étape
 
-Le prochain vrai épisode (sujet du 22/10) arrive par la voie 2 ; Damien le valide depuis son téléphone. Restent ouverts : l'annulation de l'ancienne exécution 900 (accord de Damien attendu), la mention « made with suno » dans les fichiers audio (décision de Damien), et l'option « épisode enregistré sans IA » le moment venu.
+Le prochain vrai épisode (sujet du 22/10) arrive par la voie 2 ; Damien le valide depuis son téléphone. Reste ouvert : l'option « épisode enregistré sans IA », le moment venu.
