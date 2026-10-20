@@ -91,6 +91,17 @@ Aucune construite à ce jour : évaluation faite, voie 2 recommandée (lien sign
 - Annonce R1 régénérée dans la voix habituelle (12,2 s) et nouvel essai sur le n° 41 (+12,8 s au lieu de +7,4 s) : décalages de chapitres et tailles des fichiers à recalculer au moment de l'étape 3.
 - À reporter dans le référentiel (principe 10 et D49, textes exacts des mentions du podcast) : remplacer les deux textes du podcast par ceux ci-dessus, avec la mention « modifiés par Damien le 20 octobre 2026 ».
 
+## Mise à jour en séance (2) : validations, « go publiés », « go voie 2 »
+
+- Damien a validé les deux épisodes refaits (journal : « approuvé », contrôle CONFORME, empreintes) et l'annonce R1 à l'écoute. La refonte « Impôts sur les loyers : micro-foncier ou régime réel, comment choisir » est en ligne depuis le 20/10 à 12 h (n° 42) ; « Investir seul ou à deux… » sort le 21/10 à 7 h.
+- Décision de Damien sur les épisodes publiés : non-rétroactivité. Seuls les épisodes publiés après les règles du 12/10 sont mis en conformité ; les 39 épisodes antérieurs restent tels quels (audio, titres et descriptions).
+- Épisodes publiés modifiés (même adresse de fichier, même guid, même date ; vérifiés en ligne, contrôle codé CONFORME) :
+  - n° 41 (18/10) : titre « Impôts sur les loyers : micro-foncier ou régime réel, lequel choisir pour votre location vide ? » ; ligne R2 ; annonce R1 en tête de l'audio (+12,8 s, première phrase prononcée vérifiée par transcription) ; chapitres décalés ; taille et durée à jour.
+  - n° 40 (13/10) : titre « Quel salaire faut-il pour investir dans l'immobilier ? Le calcul que fait vraiment votre banquier » ; mêmes modifications.
+  - Limite connue : Spotify et les applications qui ont déjà mis en cache l'ancien audio peuvent le garder ; titres et descriptions suivent le flux. Sur YouTube, l'audio des vidéos existantes ne peut pas être remplacé : titres et descriptions s'y mettent à jour depuis le flux.
+- YouTube (règle de la plateforme pour une voix réelle générée par IA) : étiquette « contenu synthétique » posée par l'API sur les 42 vidéos (42 sur 42 confirmées par l'API) ; les nouvelles vidéos la reçoivent automatiquement avec leur miniature. Affichage public de la mention : non encore constaté, à revérifier.
+- « go voie 2 » : construction en cours (service de liens signés à usage unique sur Cloudflare, revue de sécurité), rien de déployé ; Damien devra créer lui-même une clé d'accès Cloudflare aux droits restreints.
+
 ## Prochaine étape
 
 Damien valide l'épisode refait et « Investir seul ou à deux », écoute l'annonce R1, puis donne son « go publiés » (avec ses décisions audio) et son « go voie » ; Claude Code applique alors l'étape 3 en commençant par le n° 41, vérifie chaque épisode en ligne, et construit la voie de validation retenue.
