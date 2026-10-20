@@ -57,7 +57,7 @@ Aucun à ce jour : arrêt obligatoire avant toute modification publique. Prépar
 
 ### Voie de validation hors de l'ordinateur
 
-Aucune construite à ce jour : évaluation faite, voie 2 recommandée (lien signé servi par Cloudflare), en attente du « go voie 1 / 2 / 3 » de Damien.
+Voie 2 retenue (« go voie 2 » de Damien) et en production depuis le 20/10/2026 : l'e-mail de validation porte deux liens signés à usage unique (Worker Cloudflare `podcast-validation`, dépôt privé stepsup-fr/podcast-validation), utilisables depuis le téléphone, PC éteint ; n8n relève la décision au rallumage. Détail dans la mise à jour (3) ci-dessous.
 
 ## Points ouverts (responsable, échéance)
 
@@ -70,7 +70,7 @@ Aucune construite à ce jour : évaluation faite, voie 2 recommandée (lien sign
 | Valider deux extensions du contrôle faites en séance : institutions permises au titre de R5 (Haut Conseil de stabilité financière, conseiller bancaire…) ; formules R3 « à relire » | Damien | prochaine revue |
 | Description de l'émission (niveau du flux) : « vérifié sur les sources officielles », « Animé par Damien Fancelli » (R4), « que vous conseilliez des clients » (R5), emoji (R11) | Claude Code, après « go publiés » | avec l'étape 3 |
 | Commentaire « made with suno » dans les métadonnées des mp3 (R4) | Claude Code, sur décision de Damien | avec l'étape 3 audio |
-| « go voie 1 / 2 / 3 » pour la validation hors de l'ordinateur | Damien | à sa convenance |
+| Essai réel de la voie 2 depuis le téléphone : e-mail d'essai du 20/10 (épisode fictif « ESSAI : validation depuis le téléphone », rien n'est produit), approuver ou refuser, puis le dire | Damien | avant le 23/10/2026 à 16 h (échéance des liens) |
 | Ancienne exécution en attente depuis le 22/08 (épisode déjà en ligne) : à annuler | Claude Code, sur accord de Damien | prochaine séance |
 | Hébergement de l'audio : le site publié atteindrait son plafond de 1 Go vers janvier 2027 | Damien et Claude Code | avant décembre 2026 |
 | Hors périmètre, après l'immatriculation : flux sous une adresse stepsup.fr et transfert du dépôt dans l'organisation stepsup-fr (domaine personnalisé sur GitHub Pages, ancien flux qui annonce la nouvelle adresse, déclaration de la nouvelle adresse aux plateformes, mise à jour des workflows qui écrivent dans le dépôt) | Damien | après l'immatriculation |
@@ -102,6 +102,17 @@ Aucune construite à ce jour : évaluation faite, voie 2 recommandée (lien sign
 - YouTube (règle de la plateforme pour une voix réelle générée par IA) : étiquette « contenu synthétique » posée par l'API sur les 42 vidéos (42 sur 42 confirmées par l'API) ; les nouvelles vidéos la reçoivent automatiquement avec leur miniature. Affichage public de la mention : non encore constaté, à revérifier.
 - « go voie 2 » : construction en cours (service de liens signés à usage unique sur Cloudflare, revue de sécurité), rien de déployé ; Damien devra créer lui-même une clé d'accès Cloudflare aux droits restreints.
 
+## Mise à jour en séance (3) : voie 2 construite et en production
+
+- Worker Cloudflare `podcast-validation` mis en ligne par GitHub Actions (clé Cloudflare dédiée créée par Damien, droits Workers Scripts et Workers KV en modification, sur le seul compte STEPS'UP ; les Workers et clés de la veille n'ont pas été touchés). Essai sur fausses demandes : 16 sur 16 (ouvrir un lien ne décide rien ; usage unique ; pas de lien « approuver » pour un épisode BLOQUÉ ; lien maquillé rejeté ; API refusée sans jeton).
+- Faille trouvée dans n8n 2.36.9 et fermée : l'adresse de reprise d'une exécution en attente porte une signature que n8n ne vérifie pas (reprise sans signature acceptée). La reprise exige désormais une clé dédiée et ne peut venir que de n8n lui-même (3 tentatives non autorisées refusées, la bonne acceptée). La même faiblesse touche l'ancienne validation par e-mail, conservée seulement en secours.
+- Chaîne de production modifiée (sauvegarde préalable `sauvegardes_n8n/2026-10-20_avant-voie2/`, 84 → 97 nœuds) : demande au Worker, e-mail à liens signés (boutons en bas, comme avant), attente, relève toutes les 10 minutes et au démarrage de n8n, journal R12 avec la date de la décision et le canal « lien signé (téléphone ou PC) » ; liens valables 72 h, puis « sans réponse » comme avant ; une décision prise à temps reste appliquée même si le PC est resté éteint jusqu'à 14 jours ; si le Worker est injoignable, retour automatique à l'ancien e-mail, signalé « [Secours : boutons sur le PC] ».
+- Workflow d'alerte corrigé (défaut antérieur, révélé par la revue) : une panne qui se répète est rappelée toutes les 6 h au lieu d'une seule fois ; une panne de la relève dit « ne pas relancer le sujet » (sinon doublon).
+- Contrôles : deux revues Fable (première revue : 4 points à corriger, tous corrigés ; contre-vérification à 3 angles : 1 point confirmé, corrigé) ; 48 tests hors ligne ; bancs réels sur faux épisodes : BLOQUÉ refusé par lien 13 sur 13, Worker en panne 3 sur 3, liens échus 5 sur 5 ; chaîne en ligne identique à la version testée. Sources et essais : dépôt stepsup-fr/podcast-validation, dossier `n8n/` (commit 3503aec).
+- YouTube : la mention « Comment ce contenu a été créé : des sons ou des images ont été modifiés ou entièrement générés » est visible publiquement (constaté sur la vidéo du n° 42).
+- Limites connues : les liens signés figurent dans les exécutions enregistrées de n8n (accès local seulement) ; au-delà de 14 jours PC éteint, l'épisode est classé « sans réponse » et une alerte le signale.
+- Hors périmètre (après l'immatriculation) : aucun changement pour la voie 2 ; l'adresse du Worker pourra passer sous stepsup.fr (route Cloudflare) sans toucher à n8n autrement que par l'adresse du service.
+
 ## Prochaine étape
 
-Damien valide l'épisode refait et « Investir seul ou à deux », écoute l'annonce R1, puis donne son « go publiés » (avec ses décisions audio) et son « go voie » ; Claude Code applique alors l'étape 3 en commençant par le n° 41, vérifie chaque épisode en ligne, et construit la voie de validation retenue.
+Damien fait l'essai depuis son téléphone sur l'e-mail d'essai (épisode fictif) ; le prochain vrai épisode (sujet du 22/10) arrivera par la voie 2. Claude Code supprime ensuite le banc d'essai, et annule l'ancienne exécution 900 avec l'accord de Damien.
