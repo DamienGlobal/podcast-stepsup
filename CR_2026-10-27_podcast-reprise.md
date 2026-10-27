@@ -72,7 +72,7 @@ Objet : reprise de la chaîne du podcast STEPS'UP, à l'arrêt depuis le 21 octo
 | YouTube : miniature 16:9 et étiquette « contenu synthétique » de l'épisode du 27/10, posées automatiquement quand YouTube aura importé la vidéo (non vérifié) | Claude Code | prochaine séance |
 | ~~Valider « Investir dans l'immobilier : les 8 pièges mentaux qui vous bloquent »~~ : approuvé depuis le téléphone le 27/10 à 11 h 28 ; audio prêt à 11 h 40 ; publication le 28/10 à 7 h | Damien | fait |
 | ~~IObit~~ : désinstallé par Damien le 27/10 (vérifié : plus aucun programme, service, tâche ni processus IObit) | Damien | fait |
-| Garde Docker corrigée (voir mise à jour (3)) : essai réel à refaire, en quittant Docker Desktop depuis son icône, puis en vérifiant qu'il revient en moins de 15 minutes (une ligne « relance » s'ajoute alors dans `%LOCALAPPDATA%\stepsup-garder-docker.log`) | Damien | au plus tôt |
+| ~~Essai réel de la garde Docker~~ : Damien a quitté Docker ; au passage de 12 h 05, la garde l'a relancé (journal « 27/10/2026 12:05:01 Docker Desktop absent : relance », Docker relancé à 12 h 05 min 02 s, n8n de nouveau joignable) | Damien | fait |
 | Hébergement de la chaîne hors du PC (étude du 27/10 : serveur loué recommandé) : décision | Damien | avant les prochaines vacances |
 
 ## Pour que la surveillance fonctionne même ordinateur éteint
@@ -124,7 +124,7 @@ Coût : nul ou presque. Il faut le « go » de Damien et le choix du canal d'env
 - Garde Docker : Damien a fermé Docker vers 11 h 25 pour l'essayer. Au passage de 11 h 35, la tâche a tourné « sans erreur », mais n'a pas relancé Docker ; Docker a été relancé à la main à 11 h 38.
   - Cause, vérifiée par des essais et le journal de PowerShell : lancés par une tâche planifiée, PowerShell, wscript, le lanceur invisible et même un fichier `.cmd` placé dans AppData ne s'exécutent pas ; seule une commande cmd écrite directement dans la tâche passe. Supposé : protection de l'antivirus (Bitdefender) contre les scripts lancés en arrière-plan.
   - Correction : la garde est maintenant une commande cmd écrite dans la tâche elle-même. Elle note son dernier passage dans `stepsup-garder-docker.dernier.txt`, relance Docker Desktop par l'Explorateur s'il est absent, et note chaque relance dans `stepsup-garder-docker.log`. Essai au passage manuel de 11 h 58 : exécutée, dernier passage noté, aucune relance puisque Docker tournait.
-  - Le cas « Docker fermé » reste à essayer par Damien (Claude Code n'a pas le droit de fermer Docker). Effet visible possible : une fenêtre noire d'une fraction de seconde à chaque passage.
+  - Essai réel par Damien (Claude Code n'a pas le droit de fermer Docker) : Docker quitté, relancé par la garde à son passage de 12 h 05, n8n de nouveau joignable, workflows de la chaîne actifs, épisode du 28/10 toujours « prêt à publier ». Effet visible possible : une fenêtre noire d'une fraction de seconde à chaque passage.
 
 ## À reporter dans le référentiel (section, texte exact)
 
