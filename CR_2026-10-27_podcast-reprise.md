@@ -54,7 +54,8 @@ Objet : reprise de la chaîne du podcast STEPS'UP, à l'arrêt depuis le 21 octo
 | Veilleur hors du PC (service de validation, commit ccd4c88) | en ligne le 27/10/2026 |
 | Tâche Windows « garde Docker » | installée le 27/10/2026 |
 | Étude « podcast PC éteint » (fichier local) | 27/10/2026 |
-| Ce compte rendu | v2 |
+| Veilleur : entretien de la clé Brevo et commande d'essai (commits 07b7802, adbd356) | en ligne le 27/10/2026 |
+| Ce compte rendu | v3 |
 
 ## Points ouverts (responsable, échéance)
 
@@ -65,13 +66,13 @@ Objet : reprise de la chaîne du podcast STEPS'UP, à l'arrêt depuis le 21 octo
 | ~~Garde Docker toutes les 15 minutes~~ : installée le 27/10 avec l'accord de Damien (voir mise à jour (2)) | Claude Code | fait |
 | ~~Calendrier après un arrêt~~ : règle décidée par Damien, appliquée et inscrite dans le planificateur (voir mise à jour (2)) | Damien | fait |
 | ~~Surveillance même PC éteint~~ : « go » de Damien ; veilleur en ligne, canal Brevo (voir mise à jour (2)) | Claude Code | fait |
-| Créer la clé d'envoi Brevo et la coller dans le secret GitHub `BREVO_API_KEY` du dépôt de la validation, puis relancer sa mise en ligne : sans elle, le veilleur hors du PC ne peut pas écrire | Damien | au plus tôt |
+| ~~Clé d'envoi Brevo~~ : créée par Damien (accès « Restricted », Transactional email : All), posée le 27/10 ; e-mail d'essai envoyé à 11 h 43 | Damien | fait |
 | Vérifier en réel les déclenchements « toutes les 3 heures » et « au démarrage » de la veille (seul le déclenchement manuel a été exercé) | Claude Code | prochaine séance |
 | Repli de la recherche web sur un autre modèle quand Gemini est indisponible | Claude Code, sur décision de Damien | à décider |
 | YouTube : miniature 16:9 et étiquette « contenu synthétique » de l'épisode du 27/10, posées automatiquement quand YouTube aura importé la vidéo (non vérifié) | Claude Code | prochaine séance |
-| Valider ou refuser « Investir dans l'immobilier : les 8 pièges mentaux qui vous bloquent » (e-mail du 27/10 à 10 h 41, liens valables 72 h) : publication le 28/10 à 7 h s'il est approuvé avant | Damien | avant le 28/10 à 7 h, sinon il part au premier créneau suivant |
-| IObit : exclure Docker Desktop des mises à jour automatiques d'IObit Software Updater, ou désinstaller les outils IObit (Advanced SystemCare, Software Updater) | Damien | à sa convenance |
-| Essai réel de la garde Docker (refusé à Claude Code par la sécurité de l'outil) : quitter Docker Desktop depuis son icône, attendre au plus 15 minutes, vérifier qu'il est revenu | Damien | à sa convenance |
+| ~~Valider « Investir dans l'immobilier : les 8 pièges mentaux qui vous bloquent »~~ : approuvé depuis le téléphone le 27/10 à 11 h 28 ; audio prêt à 11 h 40 ; publication le 28/10 à 7 h | Damien | fait |
+| ~~IObit~~ : désinstallé par Damien le 27/10 (vérifié : plus aucun programme, service, tâche ni processus IObit) | Damien | fait |
+| Garde Docker corrigée (voir mise à jour (3)) : essai réel à refaire, en quittant Docker Desktop depuis son icône, puis en vérifiant qu'il revient en moins de 15 minutes (une ligne « relance » s'ajoute alors dans `%LOCALAPPDATA%\stepsup-garder-docker.log`) | Damien | au plus tôt |
 | Hébergement de la chaîne hors du PC (étude du 27/10 : serveur loué recommandé) : décision | Damien | avant les prochaines vacances |
 
 ## Pour que la surveillance fonctionne même ordinateur éteint
@@ -112,6 +113,18 @@ Coût : nul ou presque. Il faut le « go » de Damien et le choix du canal d'env
   - à défaut, pour un départ proche : laisser le portable allumé, avec réglages et limites ;
   - à écarter : n8n Cloud (réécriture du montage, environ dix fois le prix), le « mode vacances » seul (il ne couvre pas les pannes), le Raspberry Pi.
   - Chantier lié et pressé : sortir les nouveaux mp3 de GitHub Pages, à 640 Mo sur 1 Go, avec saturation prévue vers janvier-février 2027.
+
+## Mise à jour en séance (3) : clé Brevo, IObit, validation, garde Docker
+
+- Clé Brevo créée par Damien avec les droits minimaux : accès « Restricted », seule permission « Transactional email : All », sans expiration. Brevo désactive une clé restée 90 jours sans appel réussi : le veilleur la lit une fois par semaine pour la garder active.
+- Ajouts au veilleur, après une revue Fable (aucun point bloquant ; 3 points à corriger, corrigés) : commande d'essai protégée par jeton, et date de la dernière vérification de la clé. 81 tests (commits 07b7802 et adbd356).
+- Mise en ligne avec la clé, puis e-mail d'essai envoyé à 11 h 43 (Brevo : accepté). État vérifié : alerte possible, clé vérifiée, dernier signe de vie de n8n à 11 h 38.
+- IObit désinstallé par Damien (vérifié).
+- Épisode du 28/10 approuvé par Damien depuis son téléphone à 11 h 28. La décision a été relevée au redémarrage de n8n, l'audio produit à 11 h 40, et l'épisode est « prêt à publier » pour le 28/10 à 7 h.
+- Garde Docker : Damien a fermé Docker vers 11 h 25 pour l'essayer. Au passage de 11 h 35, la tâche a tourné « sans erreur », mais n'a pas relancé Docker ; Docker a été relancé à la main à 11 h 38.
+  - Cause, vérifiée par des essais et le journal de PowerShell : lancés par une tâche planifiée, PowerShell, wscript, le lanceur invisible et même un fichier `.cmd` placé dans AppData ne s'exécutent pas ; seule une commande cmd écrite directement dans la tâche passe. Supposé : protection de l'antivirus (Bitdefender) contre les scripts lancés en arrière-plan.
+  - Correction : la garde est maintenant une commande cmd écrite dans la tâche elle-même. Elle note son dernier passage dans `stepsup-garder-docker.dernier.txt`, relance Docker Desktop par l'Explorateur s'il est absent, et note chaque relance dans `stepsup-garder-docker.log`. Essai au passage manuel de 11 h 58 : exécutée, dernier passage noté, aucune relance puisque Docker tournait.
+  - Le cas « Docker fermé » reste à essayer par Damien (Claude Code n'a pas le droit de fermer Docker). Effet visible possible : une fenêtre noire d'une fraction de seconde à chaque passage.
 
 ## À reporter dans le référentiel (section, texte exact)
 
