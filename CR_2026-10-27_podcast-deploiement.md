@@ -81,8 +81,9 @@ Non touchés : la description de l'émission, `index.html`, le flux RSS, les ép
 
 | Point | Responsable | Échéance |
 |---|---|---|
-| Fusionner [DamienGlobal/podcast-stepsup#1](https://github.com/DamienGlobal/podcast-stepsup/pull/1). Tant qu'elle n'est pas fusionnée, la longueur du titre est contrôlée, mais le contrôle des mots du sujet et celui de l'introduction tournent sans leurs paramètres (mots vides, nombres en lettres, mois) : l'introduction n'est alors presque jamais signalée | Damien | avant le 29/10 |
-| Fusionner [stepsup-fr/podcast-validation#1](https://github.com/stepsup-fr/podcast-validation/pull/1) et [stepsup-fr/podcast-validation#2](https://github.com/stepsup-fr/podcast-validation/pull/2) (code déjà en service) | Damien | à sa convenance |
+| ~~Fusionner [DamienGlobal/podcast-stepsup#1](https://github.com/DamienGlobal/podcast-stepsup/pull/1)~~ : fusionnée par Damien le 27/10 ; vérifié, les règles servies par GitHub contiennent les paramètres de relecture (mots vides, nombres en lettres, mois), pris en compte dès la prochaine production | Damien | fait |
+| ~~Fusionner [stepsup-fr/podcast-validation#1](https://github.com/stepsup-fr/podcast-validation/pull/1)~~ : fusionnée par Damien le 27/10 | Damien | fait |
+| Fusionner [stepsup-fr/podcast-validation#2](https://github.com/stepsup-fr/podcast-validation/pull/2) (veille, code déjà en service) | Damien | à sa convenance |
 | ~~Signalement des doublons par e-mail~~ : « go » de Damien, déployé à 17 h 40 (mise à jour (2)) | Damien, Claude Code | fait |
 | Vérifier le premier e-mail « Sujet écarté (doublon) » réel, et la veille au prochain démarrage de n8n (exécution par le webhook, mémoire chargée) | Claude Code | au premier cas |
 | Confirmer la condition « # Titre publié » étendue aux consignes de titre (Fait, point 5) | Damien | au premier e-mail « À valider » |
