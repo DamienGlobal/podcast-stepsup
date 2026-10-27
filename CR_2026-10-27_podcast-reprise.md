@@ -7,8 +7,8 @@ Objet : reprise de la chaîne du podcast STEPS'UP, à l'arrêt depuis le 21 octo
 ## Constat (état réel relu avant d'agir)
 
 - **Aucune exécution n8n entre le 21/10 à 1 h 00 et le 27/10 à 9 h 42.** Le 21/10 à 1 h 11, le PC a été éteint depuis le menu Démarrer (extinction rapide de Windows) ; Docker Desktop, qui fait tourner n8n, s'est arrêté avec la session et ne s'est pas relancé aux ouvertures de session suivantes (22/10 à 9 h 07, 25/10 à 16 h 39, 26/10 à 23 h 00).
-  - Vérifié : dans les applications de démarrage de Windows, Docker Desktop porte la marque « 00 » au lieu de « 02 » (activé) ; la tâche planifiée de secours a tourné le 26/10 à 23 h 00, sans erreur, mais n'a pas lancé Docker Desktop (lancé avec élévation, il échoue en silence).
-  - Supposé : ce marquage a changé après le 15/10, dernier redémarrage automatique réussi (non daté).
+  - Vérifié : la tâche planifiée de secours a tourné le 26/10 à 23 h 00, sans erreur, mais n'a pas lancé Docker Desktop (lancé avec élévation, il échoue en silence) ; aucun lancement de Docker Desktop n'apparaît dans ses journaux entre le 21/10 et le 27/10.
+  - Corrigé dans la mise à jour (2) : la première version de ce compte rendu lisait la marque « 00 » de Docker Desktop dans les applications de démarrage comme « désactivé » ; la capture de Damien montre « Activé ». La cause exacte du non-redémarrage reste inexpliquée.
 - Conséquences : l'épisode approuvé le 20/10 n'est pas parti le 21/10 à 7 h ; les sujets du 22/10 et du 25/10 n'ont pas été produits ; aucun e-mail « À valider » ; l'alerte de panne, qui tourne elle aussi dans n8n, ne pouvait rien envoyer.
 - Second blocage découvert à la relance : **crédits prépayés Google Gemini épuisés** (étape « Recherche web », exécution 2096 du 27/10 à 9 h 54 : « Your prepayment credits are depleted »).
 - Publication et planificateur mis en pause à 9 h 42, dès le redémarrage de n8n et avant leur passage de 10 h, le temps des vérifications.
@@ -50,20 +50,29 @@ Objet : reprise de la chaîne du podcast STEPS'UP, à l'arrêt depuis le 21 octo
 | Règles du workflow « Alerte panne podcast » (Gemini, paiement, autorisation) | déployées le 27/10/2026 |
 | Sources de la veille et des règles d'alerte, 11 tests hors ligne | dépôt privé de la validation, commit 4c0ff82 |
 | Épisode « Investir seul ou à deux… » | publié le 27/10/2026 à 9 h 49 |
-| Ce compte rendu | v1 |
+| Planificateur : règle de rattrapage (sources et tests dans le dépôt privé de la validation, commit 86feafc) | déployée le 27/10/2026 |
+| Veilleur hors du PC (service de validation, commit ccd4c88) | en ligne le 27/10/2026 |
+| Tâche Windows « garde Docker » | installée le 27/10/2026 |
+| Étude « podcast PC éteint » (fichier local) | 27/10/2026 |
+| Ce compte rendu | v2 |
 
 ## Points ouverts (responsable, échéance)
 
 | Point | Responsable | Échéance |
 |---|---|---|
-| Recharger les crédits prépayés Google Gemini (AI Studio, facturation du projet) : sans eux, aucune production | Damien | au plus tôt |
-| Réactiver Docker Desktop au démarrage : Gestionnaire des tâches › Applications de démarrage › Docker Desktop › Activer | Damien | avant la prochaine extinction du PC |
-| Garde Docker (relance toutes les 15 minutes si Docker Desktop est fermé) : tâche planifiée à installer par Damien, ou à autoriser pour Claude Code | Damien | à sa convenance |
-| Calendrier : à la reprise, le planificateur produit d'abord le sujet du 22/10, puis celui du 25/10, et la publication reste espacée d'un jour ; ou bien décaler tout le calendrier de la durée de l'arrêt | Damien | à la reprise |
-| Surveillance même PC éteint (voir ci-dessous) : choisir l'option et le canal d'envoi | Damien, puis Claude Code | à décider |
+| ~~Recharger les crédits prépayés Google Gemini~~ : rechargés par Damien le 27/10 | Damien | fait |
+| ~~Réactiver Docker Desktop au démarrage~~ : il était déjà « Activé » (capture de Damien) | Damien | sans objet |
+| ~~Garde Docker toutes les 15 minutes~~ : installée le 27/10 avec l'accord de Damien (voir mise à jour (2)) | Claude Code | fait |
+| ~~Calendrier après un arrêt~~ : règle décidée par Damien, appliquée et inscrite dans le planificateur (voir mise à jour (2)) | Damien | fait |
+| ~~Surveillance même PC éteint~~ : « go » de Damien ; veilleur en ligne, canal Brevo (voir mise à jour (2)) | Claude Code | fait |
+| Créer la clé d'envoi Brevo et la coller dans le secret GitHub `BREVO_API_KEY` du dépôt de la validation, puis relancer sa mise en ligne : sans elle, le veilleur hors du PC ne peut pas écrire | Damien | au plus tôt |
 | Vérifier en réel les déclenchements « toutes les 3 heures » et « au démarrage » de la veille (seul le déclenchement manuel a été exercé) | Claude Code | prochaine séance |
 | Repli de la recherche web sur un autre modèle quand Gemini est indisponible | Claude Code, sur décision de Damien | à décider |
 | YouTube : miniature 16:9 et étiquette « contenu synthétique » de l'épisode du 27/10, posées automatiquement quand YouTube aura importé la vidéo (non vérifié) | Claude Code | prochaine séance |
+| Valider ou refuser « Investir dans l'immobilier : les 8 pièges mentaux qui vous bloquent » (e-mail du 27/10 à 10 h 41, liens valables 72 h) : publication le 28/10 à 7 h s'il est approuvé avant | Damien | avant le 28/10 à 7 h, sinon il part au premier créneau suivant |
+| IObit : exclure Docker Desktop des mises à jour automatiques d'IObit Software Updater, ou désinstaller les outils IObit (Advanced SystemCare, Software Updater) | Damien | à sa convenance |
+| Essai réel de la garde Docker (refusé à Claude Code par la sécurité de l'outil) : quitter Docker Desktop depuis son icône, attendre au plus 15 minutes, vérifier qu'il est revenu | Damien | à sa convenance |
+| Hébergement de la chaîne hors du PC (étude du 27/10 : serveur loué recommandé) : décision | Damien | avant les prochaines vacances |
 
 ## Pour que la surveillance fonctionne même ordinateur éteint
 
@@ -78,6 +87,33 @@ La veille tourne dans n8n, sur le PC : quand le PC, Docker ou n8n est arrêté, 
 
 Coût : nul ou presque. Il faut le « go » de Damien et le choix du canal d'envoi. La parade de fond reste un hébergement de n8n allumé en permanence, plutôt que le PC.
 
+## Mise à jour en séance (2) : réponses de Damien, rattrapage, garde Docker, veilleur hors du PC, étude
+
+- **Production relancée.** Crédits Gemini rechargés par Damien. Le sujet du 28/10 (« Investir dans l'immobilier : les 8 pièges mentaux qui vous bloquent ») a été produit avec un jour d'avance, par le chemin normal du planificateur (exécution 2113, contrôle CONFORME, empreinte `5d312a1c…`). L'e-mail de validation est parti par la voie 2 le 27/10 à 10 h 41. Publication à sa date, le 28/10 à 7 h, s'il est approuvé.
+- **Décision de Damien (règle de rattrapage).** « S'il y a un arrêt comme celui que l'on vient de vivre, il faut faire un rattrapage d'un sujet par jour, en évitant de repousser les sujets qui sont déjà planifiés et qui se lancent correctement. Les sujets en retard, on les intercale sur les jours d'après qui n'ont pas de publication de prévue. »
+  - Appliquée : sujet du 22/10 replacé au **29/10**, sujet du 25/10 au **30/10** ; rien d'autre n'a bougé.
+  - Inscrite dans le planificateur : les sujets en retard sont replacés dans leur ordre sur les premiers jours libres, un par jour, et les épisodes déjà produits gardent les premiers créneaux. Les étapes sont chaînées en série (« Replanifier les retards », « Reporter la date », « Filtrer dus »).
+  - Contrôles : revue Fable (aucun point bloquant ; 2 points à corriger, corrigés) ; 12 tests hors ligne ; essai réel sans effet sur la file, comme attendu.
+  - Défaut ancien corrigé au passage : la lecture du registre des épisodes partait une fois par ligne de la file, soit 71 requêtes anonymes à GitHub par heure pour une limite de 60. Elle part désormais une fois, avec la clé GitHub.
+- **Cause de l'arrêt, précisée** (journal de Windows, vérifié) :
+  - Docker Desktop était bien « Activé » dans les applications de démarrage ; la lecture de la première version de ce compte rendu était fausse.
+  - Le service « Docker Desktop Service » est passé à « désactivé » le 15/10 à 2 h 29, le 21/10 à 1 h 12, le 22/10 à 9 h 09 et le 25/10 à 20 h 43. Ce dernier passage a eu lieu deux minutes après une mise à jour lancée par IObit Software Updater, qui avait aussi agi le 15/10 et le 22/10.
+  - La tâche de réparation réactive le service à chaque ouverture de session, mais elle ne lance pas l'application Docker Desktop : lancée avec élévation, celle-ci ne démarre pas.
+  - Supposé : les mises à jour automatiques (IObit, Docker Desktop lui-même, mis à jour le 27/10 en 4.97) basculent le service.
+- **Garde Docker installée** (accord de Damien) : tâche Windows à son nom, sans droits administrateur. Elle vérifie à l'ouverture de session puis toutes les 15 minutes que Docker Desktop tourne, et le relance sinon. Essai : la tâche tourne, résultat 0, Docker était lancé. Le relancement réel n'a pas pu être essayé (refusé à Claude Code par la sécurité de l'outil) ; voir les points ouverts.
+- **Veilleur hors du PC en ligne** (« go » de Damien ; dépôt privé de la validation, commit ccd4c88) :
+  - Le service de validation sur Cloudflare note chaque relève de n8n (toutes les 10 minutes) et chaque demande de validation.
+  - Deux fois par jour (7 h et 19 h en hiver), si n8n est muet depuis plus de 12 heures, ou s'il n'y a eu aucune demande depuis plus de 4 jours, il écrit à Damien par Brevo, depuis l'expéditeur STEPS'UP déjà vérifié.
+  - Rappels : 3 jours après la première alerte, puis tous les 7 jours, soit 3 e-mails pour trois semaines d'absence. Tout est remis à zéro au retour à la normale.
+  - Contrôles : revue Fable (aucun point bloquant ; 2 points à corriger et 4 mineurs, corrigés) ; 74 tests. Constaté en production : relève de n8n notée à 11 h 00.
+  - **Il n'enverra rien tant que la clé Brevo n'est pas posée** (voir les points ouverts).
+- **Étude « podcast PC éteint 1 à 3 semaines »** : 5 explorations et une synthèse par Fable, dans le fichier local `Etude_podcast_PC_eteint_2026-10-27.md` (dossier du projet, hors de ce dépôt public). Recommandation :
+  - copier la chaîne telle quelle sur un petit serveur loué en France (≈ 5 € TTC par mois, prix à confirmer à la commande), accessible par un réseau privé, sans réécrire aucun workflow ;
+  - à défaut, pour un départ proche : laisser le portable allumé, avec réglages et limites ;
+  - à écarter : n8n Cloud (réécriture du montage, environ dix fois le prix), le « mode vacances » seul (il ne couvre pas les pannes), le Raspberry Pi.
+  - Chantier lié et pressé : sortir les nouveaux mp3 de GitHub Pages, à 640 Mo sur 1 Go, avec saturation prévue vers janvier-février 2027.
+
 ## À reporter dans le référentiel (section, texte exact)
 
-- Section 9, points ouverts : « Podcast : le PC est le seul serveur de la chaîne ; une extinction sans relance de Docker l'a arrêtée six jours (21 au 27 octobre 2026). Veille d'absence de production en place depuis le 27 octobre 2026 ; veille hors du PC à décider. »
+- Section 9, points ouverts : « Podcast : le PC est le seul serveur de la chaîne ; une extinction sans relance de Docker l'a arrêtée six jours (21 au 27 octobre 2026). Veille d'absence de production (dans n8n) et veilleur hors du PC (service de validation, alerte par Brevo) en place depuis le 27 octobre 2026 ; hébergement hors du PC à décider (étude du 27 octobre 2026). »
+- Section 3, journal des décisions, nouvelle ligne (à numéroter par Damien) : « 27 octobre 2026, C2. Podcast : après un arrêt, rattrapage d'un sujet par jour ; les sujets en retard sont intercalés sur les jours suivants sans publication prévue, sans repousser les sujets déjà planifiés. »
