@@ -64,7 +64,7 @@ Non touchés : la description de l'émission, `index.html`, le flux RSS, les ép
 ## Non fait, et pourquoi
 
 - **Essai d'un sujet par le chemin normal** (dernier point de la note de déploiement) : il produirait un épisode et enverrait un vrai e-mail de validation, ce qu'exclut l'ordre de mission. Premier contrôle réel : l'e-mail « À valider » du sujet du 29/10.
-- **Signalement des doublons par e-mail** (lot 3 : « l'alerte le signale à Damien dans l'e-mail du jour ») : il n'est pas dans la PR privée n° 1. Aujourd'hui, un doublon n'apparaît que dans le tableau de bord. Une version prête et testée existe dans la mise de côté locale du dépôt privé (veille de production, 19 cas sur 19, e-mail une seule fois par doublon). Elle n'a pas été déployée, faute de « go ».
+- ~~**Signalement des doublons par e-mail**~~ (lot 3 : « l'alerte le signale à Damien dans l'e-mail du jour ») : absent de la PR privée n° 1. Déployé à 17 h 40 après le « go » de Damien (voir la mise à jour (2)).
 
 ## Livrables (fichier, version)
 
@@ -73,23 +73,43 @@ Non touchés : la description de l'émission, `index.html`, le flux RSS, les ép
 | Planificateur n8n : détection des doublons (PR privée n° 1, commit a72183a) | déployé le 27/10/2026 à 16 h 35 |
 | Pipeline n8n : relecture TITRE et INTRO, consignes de rédaction, « en une dizaine de minutes » (PR publique n° 1, commit c8d0bf9) | déployé le 27/10/2026 à 16 h 40 |
 | Tableau de bord n8n : statut « Doublon » et « Produire quand même » | déployé le 27/10/2026 à 16 h 38 |
+| Veille de production n8n : signalement des doublons par e-mail, mémoire fiable au démarrage ([stepsup-fr/podcast-validation#2](https://github.com/stepsup-fr/podcast-validation/pull/2), commit 317632a) | déployée le 27/10/2026 à 17 h 40 |
 | Sauvegardes avant modification | `sauvegardes_n8n/2026-10-27_titres-intro-redondance/` et `2026-10-27_doublons/` |
-| Ce compte rendu | v1 |
+| Ce compte rendu | v2 |
 
 ## Points ouverts (responsable, échéance)
 
 | Point | Responsable | Échéance |
 |---|---|---|
 | Fusionner [DamienGlobal/podcast-stepsup#1](https://github.com/DamienGlobal/podcast-stepsup/pull/1). Tant qu'elle n'est pas fusionnée, la longueur du titre est contrôlée, mais le contrôle des mots du sujet et celui de l'introduction tournent sans leurs paramètres (mots vides, nombres en lettres, mois) : l'introduction n'est alors presque jamais signalée | Damien | avant le 29/10 |
-| Fusionner [stepsup-fr/podcast-validation#1](https://github.com/stepsup-fr/podcast-validation/pull/1) (code déjà en service) | Damien | à sa convenance |
-| Signalement des doublons par e-mail : déployer la version prête, ou s'en tenir au tableau de bord | Damien (go), puis Claude Code | à décider |
+| Fusionner [stepsup-fr/podcast-validation#1](https://github.com/stepsup-fr/podcast-validation/pull/1) et [stepsup-fr/podcast-validation#2](https://github.com/stepsup-fr/podcast-validation/pull/2) (code déjà en service) | Damien | à sa convenance |
+| ~~Signalement des doublons par e-mail~~ : « go » de Damien, déployé à 17 h 40 (mise à jour (2)) | Damien, Claude Code | fait |
+| Vérifier le premier e-mail « Sujet écarté (doublon) » réel, et la veille au prochain démarrage de n8n (exécution par le webhook, mémoire chargée) | Claude Code | au premier cas |
 | Confirmer la condition « # Titre publié » étendue aux consignes de titre (Fait, point 5) | Damien | au premier e-mail « À valider » |
 | Relire le premier e-mail « À valider » avec la nouvelle relecture : points TITRE ou INTRO, titre proposé par la chaîne, production sans erreur Gemini | Damien et Claude Code | 29/10 |
 | Le prompt du script demande encore une « accroche forte » avant les consignes d'introduction (au plus deux phrases de lancement) : à surveiller sur les premiers scripts | Claude Code | après deux épisodes |
 | Supprimer le workflow temporaire « 🔧 Lecture état du veilleur (temporaire, 27/10) », désactivé | Damien | à sa convenance |
 | Promesses de durée de `index.html` et de la description de l'émission (relevées par la session cloud) : non modifiées | Damien | « go » requis |
 
+## Mise à jour (2) : signalement des doublons par e-mail (« go » de Damien)
+
+- **Fait** : la veille de production signale par e-mail chaque sujet que le planificateur a marqué « doublon », une seule fois.
+  - Seul, il fait l'objet d'un e-mail dédié, « [Veille podcast] Sujet écarté (doublon) : … ». S'il y a aussi un retard, il s'ajoute à l'alerte de retard. L'e-mail part au passage suivant de la veille, au plus 3 heures après.
+  - L'e-mail donne le sujet, l'épisode qu'il reprend et le lien « Produire quand même » du tableau de bord.
+  - Un sujet relancé puis écarté de nouveau est signalé à nouveau.
+  - L'alerte de retard est inchangée.
+- **Code** : branche `veille-doublons-2026-10-27` du dépôt privé (commit 317632a, [stepsup-fr/podcast-validation#2](https://github.com/stepsup-fr/podcast-validation/pull/2), fusion par Damien). Déployé à 17 h 40 par `mk_veille.py`, qui conserve désormais aussi les réglages ajoutés dans n8n. Seuls les fichiers de la veille ont été repris de la mise de côté locale ; ceux de la session cloud n'ont pas été touchés.
+- **Relecture Fable** : 3 constats, confirmés par une contre-vérification et corrigés avant le déploiement.
+  - Bloquant : après un redémarrage de n8n, l'analyse reprenait après une attente de 3 minutes, sans la mémoire de la veille. Cela explique l'anti-spam « oublié » aux démarrages de 11 h 41 et 12 h 08. Avec les doublons, chaque redémarrage aurait renvoyé le même e-mail et effacé l'anti-spam. Désormais, après l'attente, la veille s'appelle elle-même par son webhook, et la mémoire est chargée.
+  - La mémoire des doublons signalés n'était jamais élaguée.
+  - La consigne de l'e-mail pour produire quand même était à préciser.
+- **Vérifié** :
+  - 22 cas sur 22 ;
+  - code des nœuds identique au dépôt, version publiée active, mémoire (anti-spam) et réglages conservés ;
+  - essai réel en simulation (exécution 2203) avec une ligne de test « doublon » : repérée, rien envoyé, mémoire chargée ;
+  - ligne de test supprimée avant le passage de 18 h 15 : plus aucune ligne « doublon » dans la file.
+
 ## À reporter dans le référentiel (section, texte exact)
 
-- Section 3, journal des décisions, nouvelle ligne (à numéroter par Damien) : « 27 octobre 2026, C2. Podcast : relecture codée du titre et de l'introduction, consignes de rédaction (titre en question concrète, introduction courte, « en une dizaine de minutes ») et détection des sujets en double mises en service dans la chaîne ; un doublon est marqué « doublon » et visible au tableau de bord, « Produire quand même » le force. »
-- Section 9, points ouverts : « Podcast : fusion des deux pull requests du 27 octobre 2026 et décision sur le signalement des doublons par e-mail. »
+- Section 3, journal des décisions, nouvelle ligne (à numéroter par Damien) : « 27 octobre 2026, C2. Podcast : relecture codée du titre et de l'introduction, consignes de rédaction (titre en question concrète, introduction courte, « en une dizaine de minutes ») et détection des sujets en double mises en service dans la chaîne ; un doublon est marqué « doublon », visible au tableau de bord et signalé une fois par e-mail par la veille de production ; « Produire quand même » le force. »
+- Section 9, points ouverts : « Podcast : fusion des pull requests du 27 octobre 2026 (dépôt public n° 1, dépôt privé n° 1 et n° 2). »
