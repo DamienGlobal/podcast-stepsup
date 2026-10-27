@@ -3,6 +3,8 @@
 // regles/regles_podcast.json (passé en paramètre « regles »).
 // Utilisable tel quel dans Node (module.exports) et recopié dans un nœud Code n8n.
 // Issues : 'BLOQUÉ', 'À RELIRE', 'CONFORME'.
+// Relecture du titre et de l'introduction (ordre de mission du 27/10/2026), jamais bloquante : points « TITRE » et « INTRO »,
+// toujours « À RELIRE ». Paramètres dans regles.controle.relecture_titre_intro ; sujet planifié facultatif (textes.sujet).
 
 function neutraliser(s) {
   // Neutralise la forme des apostrophes et des espaces (insécables, fines, tabulations).
@@ -46,6 +48,64 @@ function extrait(texte, i, n) {
 
 function chevauche(occ, zones) { return zones.some(z => occ.i < z.i + z.n && z.i < occ.i + occ.n); }
 
+function motsDe(s) {
+  // Mots d'un texte plié (lettres et chiffres), apostrophes et traits d'union séparant les mots.
+  return plier(s).split(/[^a-z0-9]+/).filter(Boolean);
+}
+
+function singulier(m) {
+  if (m.length > 4 && /aux$/.test(m)) return m.slice(0, -3) + 'al';
+  if (m.length > 3 && /[sx]$/.test(m) && !/ss$/.test(m)) return m.slice(0, -1);
+  return m;
+}
+
+function motsCles(s, vides) {
+  // Mots-clés : sans accents, sans pluriel, mots vides exclus.
+  const r = [];
+  for (const m of motsDe(s)) { const u = singulier(m); if (u.length >= 2 && !vides.has(m) && !vides.has(u) && r.indexOf(u) < 0) r.push(u); }
+  return r;
+}
+
+function memeMot(a, b) {
+  // Même mot-clé, ou même racine de cinq lettres (« location » et « locataire », « fiscal » et « fiscalité »).
+  return a === b || (a.length >= 5 && b.length >= 5 && a.slice(0, 5) === b.slice(0, 5));
+}
+
+function relireTitreIntro(titre, scriptReste, r1Present, sujet, P, ajouter) {
+  const max = P.titre_longueur_max || 90, maxMots = P.intro_mots_max || 60;
+  const vides = new Set(P.mots_vides || []);
+  const nombres = new Set(P.nombres_en_lettres || []), mois = new Set(P.mois || []);
+  const motsSujet = sujet ? motsCles(sujet, vides) : [];
+
+  // Titre : longueur et présence d'au moins un mot du sujet planifié.
+  const n = Array.from(titre).length;
+  if (n > max) ajouter('TITRE', 'À RELIRE', 'titre', 'titre de ' + n + ' caractères (plus de ' + max + ')', titre, { i: 0, n: titre.length });
+  if (motsSujet.length) {
+    const motsTitre = motsCles(titre, vides);
+    if (!motsSujet.some(function (a) { return motsTitre.some(function (b) { return memeMot(a, b); }); }))
+      ajouter('TITRE', 'À RELIRE', 'titre', 'aucun mot du sujet planifié (« ' + sujet + ' »)', titre, { i: 0, n: titre.length });
+  }
+
+  // Introduction : mots entre la fin de R1 et la première phrase qui porte un chiffre, une date ou un terme du sujet.
+  if (!r1Present) return;
+  const phrases = scriptReste.match(/[^.!?…\n]+[.!?…]*/g) || [];
+  let avant = 0;
+  for (const ph of phrases) {
+    const mots = motsDe(ph);
+    if (!mots.length) continue;
+    const porte = /[0-9]/.test(ph) || mots.some(function (m) { return nombres.has(m) || mois.has(m); })
+      || (motsSujet.length && motsCles(ph, vides).some(function (a) { return motsSujet.some(function (b) { return memeMot(a, b); }); }));
+    if (porte) break;
+    avant += mots.length;
+    if (avant > maxMots) break;
+  }
+  if (avant > maxMots) {
+    const debut = scriptReste.replace(/^\s+/, '');
+    ajouter('INTRO', 'À RELIRE', 'script', 'plus de ' + maxMots + ' mots après l\'annonce R1 avant la première phrase portant un chiffre, une date ou un terme du sujet',
+      debut, { i: 0, n: Math.min(debut.length, 80) });
+  }
+}
+
 function controlerTextes(textes, regles, options) {
   const opt = options || {};
   const C = regles.controle;
@@ -77,6 +137,9 @@ function controlerTextes(textes, regles, options) {
   let descReste = description;
   if (lignes[0].trim() === R2) descReste = lignes.slice(1).join('\n');
   else ajouter('R2', 'BLOQUÉ', 'description', 'ligne IA absente ou altérée en première ligne', description, { i: 0, n: Math.min(description.length, 80) });
+
+  // Titre et introduction : relecture, jamais bloquante.
+  relireTitreIntro(titre, scriptReste, scriptReste !== script, neutraliser(textes.sujet || '').trim(), C.relecture_titre_intro || {}, ajouter);
 
   const champs = { titre: titre, description: descReste, script: scriptReste };
 
