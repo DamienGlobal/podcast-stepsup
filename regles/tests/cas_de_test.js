@@ -63,6 +63,15 @@ const cas = [
     textes: Object.assign(poserMentions({ titre: "Taxe foncière : qui paie l'année de la vente", description: DESC_OK, script: "La taxe foncière est due par celui qui est propriétaire au premier janvier. " + INTRO_LONGUE }, regles), { sujet: "Taxe foncière et vente" }) },
   { id: 'T17', nom: "titre long, sans mot du sujet, introduction longue : à relire, jamais bloqué", attendu: 'À RELIRE', regles_attendues: ['TITRE:titre', 'INTRO:script'],
     textes: Object.assign(poserMentions({ titre: "La bille, la lampe et l'humidimètre : ce que les meilleurs visiteurs emportent toujours dans leur poche", description: DESC_OK, script: INTRO_LONGUE + " " + INTRO_LONGUE }, regles), { sujet: "Les vérifications avant d'acheter" }) },
+  // Nom de Damien (décision du 29/10/2026) : prénom seul. Nom fictif dans les cas, jamais le vrai nom dans ce dépôt public.
+  { id: 'T19', nom: "description : prénom suivi d'un nom", attendu: 'BLOQUÉ', regles_attendues: ['R2:description'],
+    textes: poserMentions({ titre: "Louer vide ou meublé", description: DESC_OK + "\n\nPrésenté par Damien Martin.", script: SCRIPT_OK }, regles) },
+  { id: 'T20', nom: "script : prénom suivi d'une initiale", attendu: 'BLOQUÉ', regles_attendues: ['R2:script'],
+    textes: poserMentions({ titre: "Louer vide ou meublé", description: DESC_OK, script: "Je suis Damien M. " + SCRIPT_OK }, regles) },
+  { id: 'T21', nom: "prénom seul, dans le script et la description", attendu: 'CONFORME',
+    textes: poserMentions({ titre: "Louer vide ou meublé", description: DESC_OK + "\n\nPrésenté par Damien.", script: "Je suis Damien. " + SCRIPT_OK }, regles) },
+  { id: 'T22', nom: "mot de la liste privée passée par n8n (ici fictive)", attendu: 'BLOQUÉ', regles_attendues: ['R2:script'], options: { motsExclusPrives: ['martin'] },
+    textes: poserMentions({ titre: "Louer vide ou meublé", description: DESC_OK, script: SCRIPT_OK + " Monsieur Martin vous le dirait aussi." }, regles) },
 ];
 
 let echecs = 0;

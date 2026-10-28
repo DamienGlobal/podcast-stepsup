@@ -86,7 +86,7 @@ Voie 2 retenue (« go voie 2 » de Damien) et en production depuis le 20/10/2026
 
 - Décision de Damien : nouveaux textes de R1 et R2 (commit 0e6145e ; anciens textes du 12/10 conservés dans `historique` du fichier de règles) :
   - R1 : « Steps'up, le podcast. Ma voix est générée par IA à partir de ma vraie voix. Mes textes sont écrits par moi, avec l'appui de l'IA, notamment pour récupérer les informations les plus récentes. »
-  - R2 : « Voix générée par IA à partir de celle de Damien Fancelli, avec son accord ; textes écrits par lui, avec l'appui de l'IA, notamment pour récupérer les informations les plus récentes. »
+  - R2 : « Voix générée par IA à partir de celle de Damien, avec son accord ; textes écrits par lui, avec l'appui de l'IA, notamment pour récupérer les informations les plus récentes. »
 - Cas de test après changement : 10 sur 10 réussis ; les nouveaux textes seuls ressortent CONFORME.
 - Les deux épisodes en attente (exécutions 1919 et 1924, ancien texte figé au lancement) ont été arrêtés, leur refus journalisé, et relancés avec le nouveau texte ; nouveaux e-mails de validation à suivre.
 - Annonce R1 régénérée dans la voix habituelle (12,2 s) et nouvel essai sur le n° 41 (+12,8 s au lieu de +7,4 s) : décalages de chapitres et tailles des fichiers à recalculer au moment de l'étape 3.

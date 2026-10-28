@@ -1,10 +1,10 @@
 {
-  "version": "2026-10-20",
-  "source": "Règles de communication fixées par Damien Fancelli le 12 octobre 2026 ; textes de R1 et R2 modifiés par lui le 20 octobre 2026. Textes exacts, à ne pas reformuler.",
+  "version": "2026-10-29",
+  "source": "Règles de communication fixées par Damien le 12 octobre 2026 ; textes de R1 et R2 modifiés par lui le 20 octobre 2026 ; le 29 octobre 2026, à sa demande, son nom de famille est retiré de R2 et ne figure plus dans aucun texte (prénom seul). Textes exacts, à ne pas reformuler.",
   "ANNONCE_FAITE": false,
   "regles": {
     "R1": "Première phrase prononcée de chaque épisode, avant tout contenu (une musique sans paroles peut la précéder) : « Steps'up, le podcast. Ma voix est générée par IA à partir de ma vraie voix. Mes textes sont écrits par moi, avec l'appui de l'IA, notamment pour récupérer les informations les plus récentes. »",
-    "R2": "Première ligne de la description de chaque épisode : « Voix générée par IA à partir de celle de Damien Fancelli, avec son accord ; textes écrits par lui, avec l'appui de l'IA, notamment pour récupérer les informations les plus récentes. »",
+    "R2": "Première ligne de la description de chaque épisode : « Voix générée par IA à partir de celle de Damien, avec son accord ; textes écrits par lui, avec l'appui de l'IA, notamment pour récupérer les informations les plus récentes. » Dans tous les textes, écrits ou lus, Damien n'est désigné que par son prénom, jamais par son nom de famille.",
     "R3": "Aucune promesse de gain, d'économie ou de résultat dans le titre ni dans la description. Dans le script, un montant ne figure qu'en ordre de grandeur, « selon les cas », jamais comme une promesse faite à l'auditeur. Jamais l'idée qu'une formation se rembourse d'elle-même.",
     "R4": "En dehors de R1 et R2, aucun texte ne dit ce qui est fait par l'IA ou par une personne, et les mots « humain », « robot », « programme » et « automatique » n'y figurent pas ; pas davantage de formule comme « des experts ont vérifié ce contenu ».",
     "R5": "Le mot « conseil » et ses dérivés ne décrivent jamais l'épisode ni ce que fait Steps'up. Avertissement à employer tel quel quand il en faut un : « Ce que je vous dis ici est pédagogique et général : cela ne remplace pas l'examen de votre situation par un professionnel. » Restent permis les termes qui désignent d'autres acteurs : conseil syndical, conseil municipal, Conseil d'État, Conseil constitutionnel, conseiller en gestion de patrimoine.",
@@ -18,7 +18,7 @@
   },
   "textes_imposes": {
     "R1_annonce_audio": "Steps'up, le podcast. Ma voix est générée par IA à partir de ma vraie voix. Mes textes sont écrits par moi, avec l'appui de l'IA, notamment pour récupérer les informations les plus récentes.",
-    "R2_ligne_description": "Voix générée par IA à partir de celle de Damien Fancelli, avec son accord ; textes écrits par lui, avec l'appui de l'IA, notamment pour récupérer les informations les plus récentes.",
+    "R2_ligne_description": "Voix générée par IA à partir de celle de Damien, avec son accord ; textes écrits par lui, avec l'appui de l'IA, notamment pour récupérer les informations les plus récentes.",
     "R5_avertissement": "Ce que je vous dis ici est pédagogique et général : cela ne remplace pas l'examen de votre situation par un professionnel."
   },
   "controle": {
@@ -469,7 +469,7 @@
     {
       "date": "2026-10-12",
       "R1_annonce_audio": "Steps'up, le podcast. Ma voix est générée par IA ; mes textes sont écrits par moi, avec l'appui de l'IA.",
-      "R2_ligne_description": "Voix générée par IA à partir de celle de Damien Fancelli, avec son accord ; textes écrits par lui, avec l'appui de l'IA."
+      "R2_ligne_description": "Voix générée par IA à partir de celle de Damien, avec son accord ; textes écrits par lui, avec l'appui de l'IA."
     }
   ]
 }
