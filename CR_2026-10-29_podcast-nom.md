@@ -18,7 +18,8 @@ Objet : retrait du nom de famille de Damien de tous les textes du podcast (prén
    - Nom complet remplacé par « Damien » dans les cinq fichiers ci-dessus (23 lignes).
    - `regles/regles_podcast.json` : `version` 2026-10-29 ; `source` et `regles.R2` aux textes exacts de l'ordre de mission ; `textes_imposes.R2_ligne_description` devient « Voix générée par IA à partir de celle de Damien, avec son accord ; textes écrits par lui, avec l'appui de l'IA, notamment pour récupérer les informations les plus récentes. »
    - `regles/controle.js` : deux lignes d'en-tête et contrôle R2 bloquant dans `controlerTextes`, sur le titre, la description et le script : nom ou initiale juste après « Damien » ; tout mot de la liste privée `options.motsExclusPrives`, tenue dans n8n.
-   - `regles/tests/cas_de_test.js` : cas T19 à T22, avec un nom fictif.
+   - `regles/tests/cas_de_test.js` : cas T19 à T23, avec un nom fictif.
+   - Défaut du contrôle levé (correction demandée par Damien) : le nom ou l'initiale doit suivre « Damien » sur la même ligne (`[ \t]+` au lieu de `[ \t\n]+` dans `reNom`). « Damien » en fin de ligne, suivi d'une ligne qui commence par une majuscule, n'est plus bloqué ; cas T23.
    - Description de l'émission (`description` et `itunes:summary`), décision du 28 octobre 2026 : emoji retiré ; la ligne devient exactement « Animé par Damien. Plus d'infos sur www.global-icon.fr. Abonnez-vous pour suivre les prochains épisodes. ». Rien d'autre ne change dans cette description.
 2. **Commit 2, « Podcast : adresse de contact sans nom »** : adresse remplacée par `admin@global-icon.fr` dans `feed.xml` (`itunes:owner`) et `index.html` (lien Contact). Commit séparé, que Damien peut écarter avant la fusion.
 
@@ -30,7 +31,8 @@ Non touchés : adresse et structure du flux, audio, images, `ANNONCE_FAITE` (tou
 - `feed.xml` bien formé (`xmllint`) ; le diff ne change que les 12 lignes qui portaient le nom et la ligne `itunes:owner`. Sur les deux lignes de la description de l'émission, seuls changent le nom et l'emoji ; plus aucun emoji dans la description de l'émission.
 - `episodes.json` et `regles/regles_podcast.json` valides (lecture JSON).
 - Les cinq épisodes dont la description commençait par la ligne R2 commencent par la nouvelle ligne, dans `episodes.json` comme dans `feed.xml` (10 occurrences : description et `itunes:summary`), et passent le contrôle R2 sans point.
-- `node regles/tests/cas_de_test.js` : 26 cas sur 26 (22 avant).
+- `node regles/tests/cas_de_test.js` : 27 cas sur 27 (22 avant), dont T23 (prénom seul en fin de ligne, majuscule à la ligne suivante : CONFORME).
+- Description de l'émission : emoji retiré dans les deux champs, plus aucun emoji dans cette description.
 
 ## Points ouverts (responsable, échéance)
 
@@ -43,7 +45,6 @@ Non touchés : adresse et structure du flux, audio, images, `ANNONCE_FAITE` (tou
 | Épisode du 29 octobre en attente de validation : à repasser avec la nouvelle ligne R2 avant toute approbation | Damien, Claude Code | avant validation |
 | Plateformes qui reprennent le flux (Spotify, Apple, Amazon, Deezer, YouTube) : vérifier la mise à jour des descriptions ; YouTube ne relit pas le flux pour les vidéos déjà publiées, à corriger à part si le nom y figure | Damien | après la fusion |
 | Historique git du dépôt public : les anciennes versions gardent le nom ; une réécriture d'historique serait une décision distincte (elle casse les clones et n'efface pas les copies déjà faites) | Damien | à sa décision |
-| Faux positif connu du contrôle : « Damien » en fin de ligne, sans ponctuation, suivi d'une ligne qui commence par une majuscule, est bloqué (ex. « Animé par Damien » puis « Abonnez-vous »). Erreur dans le sens prudent ; à corriger si cela gêne | Claude Code | au premier cas |
 
 ## À reporter dans le référentiel (section, texte exact)
 
