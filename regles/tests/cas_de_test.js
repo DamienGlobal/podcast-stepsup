@@ -72,6 +72,8 @@ const cas = [
     textes: poserMentions({ titre: "Louer vide ou meublé", description: DESC_OK + "\n\nPrésenté par Damien.", script: "Je suis Damien. " + SCRIPT_OK }, regles) },
   { id: 'T22', nom: "mot de la liste privée passée par n8n (ici fictive)", attendu: 'BLOQUÉ', regles_attendues: ['R2:script'], options: { motsExclusPrives: ['martin'] },
     textes: poserMentions({ titre: "Louer vide ou meublé", description: DESC_OK, script: SCRIPT_OK + " Monsieur Martin vous le dirait aussi." }, regles) },
+  { id: 'T23', nom: "prénom seul en fin de ligne, majuscule à la ligne suivante", attendu: 'CONFORME',
+    textes: poserMentions({ titre: "Louer vide ou meublé", description: DESC_OK + "\n\nPrésenté par Damien\nAbonnez-vous pour ne manquer aucun épisode.", script: SCRIPT_OK }, regles) },
 ];
 
 let echecs = 0;

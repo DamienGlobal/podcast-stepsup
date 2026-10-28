@@ -150,7 +150,7 @@ function controlerTextes(textes, regles, options) {
     const P = plier(texte);
 
     // R2 (29/10/2026) : Damien n'est désigné que par son prénom, dans tous les textes.
-    const reNom = /(?<![\p{L}\p{N}])Damien[ \t\n]+(?:\p{Lu}[\p{L}'-]*|\p{Lu}\.)/gu; let mn;
+    const reNom = /(?<![\p{L}\p{N}])Damien[ \t]+(?:\p{Lu}[\p{L}'-]*|\p{Lu}\.)/gu; let mn;
     while ((mn = reNom.exec(texte)) !== null) ajouter('R2', 'BLOQUÉ', champ, 'nom ou initiale après « Damien » (prénom seul)', texte, { i: mn.index, n: mn[0].length });
     for (const e of (opt.motsExclusPrives || [])) for (const o of trouver(P, e)) ajouter('R2', 'BLOQUÉ', champ, 'mot de la liste privée (prénom seul)', texte, o);
 
