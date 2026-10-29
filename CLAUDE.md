@@ -1,6 +1,6 @@
 # Consignes du dépôt podcast-stepsup
 
-Ce dépôt public héberge le podcast STEPS'UP (flux `feed.xml`, `episodes.json`, audio `episodes/`, vignettes `images/`, page d'accueil `index.html`), servi par GitHub Pages. Les épisodes sont produits et publiés par la chaîne n8n locale de Damien Fancelli, qui écrit dans ce dépôt par l'API GitHub.
+Ce dépôt public héberge le podcast STEPS'UP (flux `feed.xml`, `episodes.json`, audio `episodes/`, vignettes `images/`, page d'accueil `index.html`), servi par GitHub Pages. Les épisodes sont produits et publiés par la chaîne n8n locale de Damien, qui écrit dans ce dépôt par l'API GitHub.
 
 ## Règles de communication (12 octobre 2026) : impératives
 

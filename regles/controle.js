@@ -3,6 +3,8 @@
 // regles/regles_podcast.json (passé en paramètre « regles »).
 // Utilisable tel quel dans Node (module.exports) et recopié dans un nœud Code n8n.
 // Issues : 'BLOQUÉ', 'À RELIRE', 'CONFORME'.
+// Nom de Damien (décision du 29/10/2026, règle R2) : prénom seul. Bloquant : un nom ou une initiale juste après « Damien »,
+// et tout mot de la liste privée options.motsExclusPrives (tenue dans n8n, jamais dans ce dépôt public).
 // Relecture du titre et de l'introduction (ordre de mission du 27/10/2026), jamais bloquante : points « TITRE » et « INTRO »,
 // toujours « À RELIRE ». Paramètres dans regles.controle.relecture_titre_intro ; sujet planifié facultatif (textes.sujet).
 
@@ -146,6 +148,11 @@ function controlerTextes(textes, regles, options) {
   for (const champ of Object.keys(champs)) {
     const texte = champs[champ];
     const P = plier(texte);
+
+    // R2 (29/10/2026) : Damien n'est désigné que par son prénom, dans tous les textes.
+    const reNom = /(?<![\p{L}\p{N}])Damien[ \t]+(?:\p{Lu}[\p{L}'-]*|\p{Lu}\.)/gu; let mn;
+    while ((mn = reNom.exec(texte)) !== null) ajouter('R2', 'BLOQUÉ', champ, 'nom ou initiale après « Damien » (prénom seul)', texte, { i: mn.index, n: mn[0].length });
+    for (const e of (opt.motsExclusPrives || [])) for (const o of trouver(P, e)) ajouter('R2', 'BLOQUÉ', champ, 'mot de la liste privée (prénom seul)', texte, o);
 
     // R6 et R9 : bloquants partout.
     for (const e of C.R6_expressions) for (const o of trouver(P, e)) ajouter('R6', 'BLOQUÉ', champ, e, texte, o);
